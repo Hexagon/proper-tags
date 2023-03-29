@@ -1,3 +1,13 @@
+
+/**
+ * JSTag
+ * A function that takes a template literal and returns a string.
+ * @typedef {function} JSTag
+ * @param {TemplateStringsArray} literals - The template literal containing placeholders.
+ * @param {...*} placeholders - The values to replace the placeholders in the template literal.
+ * @returns {string} - The result string after processing the template literal.
+ */
+
 // core
 export { createTag } from "./createTag/index.js";
 

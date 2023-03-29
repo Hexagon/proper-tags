@@ -12,17 +12,37 @@ export class TemplateTag {
      */
     constructor(...transformers: any[]);
 }
-export const html: Function;
-export const commaLists: Function;
-export const commaListsAnd: Function;
-export const commaListsOr: Function;
+/**
+ * An HTML tag function that processes a template literal and returns an HTML string.
+ * @type {TemplateTag}
+ */
+export const html: TemplateTag;
+/**
+ * Allows you to inline an array substitution as a comma-separated list.
+ * @type {TemplateTag}
+ */
+export const commaLists: TemplateTag;
+/**
+ * Allows you to inline an array substitution as a comma-separated list, the last of which is preceded by the word "and".
+ * @type {TemplateTag}
+ */
+export const commaListsAnd: TemplateTag;
+/**
+ * Allows you to inline an array substitution as a comma-separated list, the last of which is preceded by the word "or".
+ * @type {TemplateTag}
+ */
+export const commaListsOr: TemplateTag;
 /**
  * Consumes a pipeline of composable transformer plugins and produces a template tag.
  * @param  {...Object} [...rawTransformers] - An array or arguments list of transformers
  * @return {Function}                       - A template tag
  */
 export function createTag(...rawTransformers: any[]): Function;
-export const id: Function;
+/**
+ * A no-op tag that might come in useful in some scenarios, e.g. mocking.
+ * @type {TemplateTag}
+ */
+export const id: TemplateTag;
 /**
  * Converts an array substitution to a string containing a list
  * @param {String} [opts.separator = '']   - The character that separates each item
