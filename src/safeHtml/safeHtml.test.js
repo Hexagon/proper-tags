@@ -12,7 +12,7 @@ test('renders HTML, including arrays', () => {
       ${fruits.map((fruit) => `${fruit}`)}
     </ul>
   `;
-  expect(actual).toBe(expected);
+  assert.equal(actual, expected);
 });
 
 test('converts strings containing newlines into proper indented output', () => {
@@ -25,7 +25,7 @@ test('converts strings containing newlines into proper indented output', () => {
       <li>three</li>
     </ul>
   `;
-  expect(actual).toBe(expected);
+  assert.equal(actual, expected);
 });
 
 test('correctly escapes HTML tags on substitution', () => {
@@ -37,5 +37,5 @@ test('correctly escapes HTML tags on substitution', () => {
       ${fruits.map((fruit) => `${fruit}`)}
     </ul>
   `;
-  expect(actual).toBe(expected);
+  assert.equal(actual, expected);
 });

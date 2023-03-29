@@ -1,5 +1,4 @@
 export default {
-  collectCoverage: true,
-  coverageDirectory: './coverage/',
-  testEnvironment: 'node',
+  testEnvironment: 'jest-environment-node',
+  transform: {}
 };

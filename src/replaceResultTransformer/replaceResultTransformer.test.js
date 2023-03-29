@@ -13,7 +13,7 @@ test('replaces sequential whitespace with a single space', () => {
     bar
     baz
   `;
-  expect(actual).toBe(expected);
+  assert.equal(actual, expected);
 });
 
 test('can be set so sequence requires a newline at the beginning before triggering replacement', () => {
@@ -27,11 +27,11 @@ test('can be set so sequence requires a newline at the beginning before triggeri
     google.com
     ?utm_source=common-tags
   `;
-  expect(actual).toBe(expected);
+  assert.equal(actual, expected);
 });
 
 test('throws error if no arguments are supplied', () => {
-  expect(() => {
+  assert.equal(() => {
     replaceResultTransformer();
   }).toThrow(/requires exactly 2 arguments/);
 });

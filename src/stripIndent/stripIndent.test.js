@@ -9,7 +9,7 @@ test('strips indentation', () => {
     wow such indent gone
     very ${val}
   `;
-  expect(actual).toBe(expected);
+  assert.equal(actual, expected);
 });
 
 test('strips larger indentation', () => {
@@ -18,7 +18,7 @@ test('strips larger indentation', () => {
       wow such indent gone
       very ${val}
   `;
-  expect(actual).toBe(expected);
+  assert.equal(actual, expected);
 });
 
 test('maintains deeper indentation', () => {
@@ -27,7 +27,7 @@ test('maintains deeper indentation', () => {
     wow such indent gone
         very ${val}
   `;
-  expect(actual).toBe(expected);
+  assert.equal(actual, expected);
 });
 
 test('maintains empty lines', () => {
@@ -37,17 +37,17 @@ test('maintains empty lines', () => {
 
         very ${val}
   `;
-  expect(actual).toBe(expected);
+  assert.equal(actual, expected);
 });
 
 test('does nothing if there are no indents', () => {
   const expected = 'wow such doge';
   const actual = stripIndent`wow such doge`;
-  expect(actual).toBe(expected);
+  assert.equal(actual, expected);
 });
 
 test('does nothing if minimal indent has zero length', () => {
   const expected = 'wow\n such\n doge';
   const actual = stripIndent`wow\n such\n doge`;
-  expect(actual).toBe(expected);
+  assert.equal(actual, expected);
 });

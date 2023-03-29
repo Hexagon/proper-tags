@@ -18,7 +18,7 @@ test('utils exports all the right modules directly', () => {
   const modules = context.modules;
   expect.assertions(modules.length);
   modules.forEach((module) => {
-    expect(requireModule(module)).toBeDefined();
+    assert.equal(requireModule(module)).toBeDefined();
   });
 });
 
@@ -26,6 +26,6 @@ test('utils exports all the right modules as props', () => {
   const modules = context.modules;
   expect.assertions(modules.length);
   modules.forEach((module) => {
-    expect(require('./index')).toHaveProperty(module, requireModule(module));
+    assert.equal(require('./index')).toHaveProperty(module, requireModule(module));
   });
 });

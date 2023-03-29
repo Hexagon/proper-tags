@@ -10,7 +10,7 @@ test('reduces to one line while trimming newlines', () => {
   very absence of space
   much ${val}
   `;
-  expect(actual).toBe(expected);
+  assert.equal(actual, expected);
 });
 
 test('reduces to one line while trimming newlines (no indentation)', () => {
@@ -20,5 +20,5 @@ wow such reduction
 very absence of space
 much ${val}
   `;
-  expect(actual).toBe(expected);
+  assert.equal(actual, expected);
 });

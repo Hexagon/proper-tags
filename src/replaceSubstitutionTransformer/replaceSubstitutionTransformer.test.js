@@ -6,28 +6,28 @@ test('only operates on substitutions', () => {
     replaceSubstitutionTransformer(/</g, '&lt;'),
     replaceSubstitutionTransformer(/>/g, '&gt;'),
   );
-  expect(tag`<h1>foo${'<bar></bar>'}</h1>`).toBe(
+  assert.equal(tag`<h1>foo${'<bar></bar>'}</h1>`, 
     '<h1>foo&lt;bar&gt;&lt;/bar&gt;</h1>',
   );
 });
 
 test('does not touch undefined and null substitutions', () => {
   const tag = createTag(replaceSubstitutionTransformer(/u/g, ''));
-  expect(tag`foo ${undefined} bar ${null}`).toBe('foo undefined bar null');
+  assert.equal(tag`foo ${undefined} bar ${null}`, 'foo undefined bar null');
 });
 
 test('works on numbers', () => {
   const tag = createTag(replaceSubstitutionTransformer(/2/g, '3'));
-  expect(tag`foo ${2} bar ${43.12}`).toBe('foo 3 bar 43.13');
+  assert.equal(tag`foo ${2} bar ${43.12}`, 'foo 3 bar 43.13');
 });
 
 test('works on arrays', () => {
   const tag = createTag(replaceSubstitutionTransformer(/foo/g, 'bar'));
-  expect(tag`${['foo', 'bar', 'foo']}`).toBe('bar,bar,bar');
+  assert.equal(tag`${['foo', 'bar', 'foo']}`, 'bar,bar,bar');
 });
 
 test('throws error if no arguments are supplied', () => {
-  expect(() => {
+  assert.equal(() => {
     replaceSubstitutionTransformer();
   }).toThrow(/requires exactly 2 arguments/);
 });

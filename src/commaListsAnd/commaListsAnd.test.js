@@ -1,5 +1,12 @@
-import commaListsAnd from './commaListsAnd.js';
-import { readFromFixture } from '../testUtils.js';
+import { test } from 'uvu';
+import * as assert from 'uvu/assert';
+import path from 'path';
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+import { commaListsAnd } from './commaListsAnd.js';
+import { readFromFixture } from '../testUtils/index.js';
 
 const val = 'amaze';
 
@@ -10,7 +17,7 @@ test('includes arrays as comma-separated list with "and"', () => {
     Doge <3's these fruits: ${fruits}
     they are ${val}
   `;
-  expect(actual).toBe(expected);
+  assert.equal(actual, expected);
 });
 
 test('only returns the first item of a single element array', () => {
@@ -20,5 +27,7 @@ test('only returns the first item of a single element array', () => {
     Doge <3's these fruits: ${fruits}
     they are ${val}
   `;
-  expect(actual).toBe(expected);
+  assert.equal(actual, expected);
 });
+
+test.run()

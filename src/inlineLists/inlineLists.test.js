@@ -10,5 +10,5 @@ test('includes arrays as space-separated list', () => {
     Doge <3's these fruits: ${fruits}
     they are ${val}
   `;
-  expect(actual).toBe(expected);
+  assert.equal(actual, expected);
 });

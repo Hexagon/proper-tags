@@ -5,20 +5,20 @@ import removeNonPrintingValuesTransformer from '../removeNonPrintingValuesTransf
 test('removes null', () => {
   const remove = createTag(removeNonPrintingValuesTransformer());
   const nil = null;
-  expect(remove`a${nil}z`).toBe('az');
+  assert.equal(remove`a${nil}z`, 'az');
 });
 
 test('removes bool', () => {
   const remove = createTag(removeNonPrintingValuesTransformer());
   const yep = true;
   const nope = false;
-  expect(remove`a${yep}${nope}z`).toBe('az');
+  assert.equal(remove`a${yep}${nope}z`, 'az');
 });
 
 test('removes NaN', () => {
   const remove = createTag(removeNonPrintingValuesTransformer());
   const nan = 0 / 0;
-  expect(remove`a${nan}z`).toBe('az');
+  assert.equal(remove`a${nan}z`, 'az');
 });
 
 test('removes non-printing array values', () => {
@@ -27,5 +27,5 @@ test('removes non-printing array values', () => {
     inlineArrayTransformer(),
   );
   const val = ['foo', undefined, 'bar', null];
-  expect(remove`a ${val} z`).toBe('a foo bar z');
+  assert.equal(remove`a ${val} z`, 'a foo bar z');
 });

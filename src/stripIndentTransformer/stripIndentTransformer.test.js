@@ -15,7 +15,7 @@ test('default behaviour removes the leading indent, but preserves the rest', () 
       baz foo bar
         wow such doge
   `;
-  expect(actual).toBe(expected);
+  assert.equal(actual, expected);
 });
 
 test('type "initial" does not remove indents if there is no need to do so', () => {
@@ -23,9 +23,9 @@ test('type "initial" does not remove indents if there is no need to do so', () =
     stripIndentTransformer(),
     trimResultTransformer('smart'),
   );
-  expect(stripIndent``).toBe('');
-  expect(stripIndent`foo`).toBe('foo');
-  expect(stripIndent`foo\nbar`).toBe('foo\nbar');
+  assert.equal(stripIndent``, '');
+  assert.equal(stripIndent`foo`, 'foo');
+  assert.equal(stripIndent`foo\nbar`, 'foo\nbar');
 });
 
 test('removes all indents if type is "all"', () => {
@@ -40,11 +40,11 @@ test('removes all indents if type is "all"', () => {
       baz foo bar
         wow such doge
   `;
-  expect(actual).toBe(expected);
+  assert.equal(actual, expected);
 });
 
 test('throws an error if encounters invalid type', () => {
-  expect(() => {
+  assert.equal(() => {
     stripIndentTransformer('blue');
   }).toThrow(/not supported/);
 });

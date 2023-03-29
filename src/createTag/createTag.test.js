@@ -1,8 +1,15 @@
-import createTag from '../createTag';
+import { test, suite } from 'uvu';
+import * as assert from 'uvu/assert';
+import path from 'path';
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+import { createTag } from '../createTag/index.js';
 
 test('does no processing by default', () => {
   const tag = createTag();
-  expect(tag`foo`).toBe('foo');
+  assert.equal(tag`foo`, 'foo');
 });
 
 test('transformer methods are optional', () => {
@@ -22,10 +29,10 @@ test('transformer methods are optional', () => {
       return sub.split('').reverse().join('');
     },
   });
-  expect(noMethods`foo`).toBe('foo');
-  expect(noSubNorEnd`foo ${'bar'} baz`).toBe('FOO bar BAZ');
-  expect(noStringNorSub`bar`).toBe('BAR');
-  expect(noStringNorEnd`foo ${'bar'}`).toBe('foo rab');
+  assert.equal(noMethods`foo`,'foo');
+  assert.equal(noSubNorEnd`foo ${'bar'} baz`, 'FOO bar BAZ');
+  assert.equal(noStringNorSub`bar`, 'BAR');
+  assert.equal(noStringNorEnd`foo ${'bar'}`, 'foo rab');
 });
 
 test('calls hooks with an additional context argument', () => {
@@ -47,7 +54,7 @@ test('calls hooks with an additional context argument', () => {
     },
   });
   const data = tag`foo ${'bar'} baz ${'fizz'}`;
-  expect(data).toEqual({
+  assert.equal(data).toEqual({
     endResult: 'FOO BAR BAZ FIZZ',
     strings: ['foo ', ' baz ', ''],
     subs: [
@@ -118,17 +125,17 @@ test('each transformer has its own context', () => {
 
   tag`foo${42}`;
 
-  expect(defaultContext).toEqual({
+  assert.equal(defaultContext).toEqual({
     onStringCalled: true,
     onSubstitutionCalled: true,
     onEndResultCalled: true,
   });
-  expect(context1).toEqual({
+  assert.equal(context1).toEqual({
     onStringCalled: true,
     onSubstitutionCalled: true,
     onEndResultCalled: true,
   });
-  expect(context2).toEqual({
+  assert.equal(context2).toEqual({
     onStringCalled: true,
     onSubstitutionCalled: true,
     onEndResultCalled: true,
@@ -142,7 +149,7 @@ test('calls the "init" hook each time the tag is called', () => {
   tag`foo`;
   tag`foo`;
 
-  expect(getInitialContext).toHaveBeenCalledTimes(2);
+  assert.equal(getInitialContext).toHaveBeenCalledTimes(2);
 });
 
 test("doesn't handle function arguments specially", () => {
@@ -152,10 +159,10 @@ test("doesn't handle function arguments specially", () => {
     },
   });
   const invalidTag = createTag(plugin);
-  expect(invalidTag`foo bar`).toBe('foo bar');
+  assert.equal(invalidTag`foo bar`, 'foo bar');
 
   const properTag = createTag(plugin());
-  expect(properTag`foo bar`).toBe('FOO BAR');
+  assert.equal(properTag`foo bar`, 'FOO BAR');
 });
 
 test('supports pipeline of transformers as both argument list and as array', () => {
@@ -171,8 +178,8 @@ test('supports pipeline of transformers as both argument list and as array', () 
   };
   const argumentListTag = createTag(transform1, transform2);
   const arrayTag = createTag([transform1, transform2]);
-  expect(argumentListTag`wow ${'foo'}`).toBe('WOW DOGE');
-  expect(arrayTag`bow ${'foo'}`).toBe('BOW DOGE');
+  assert.equal(argumentListTag`wow ${'foo'}`, 'WOW DOGE');
+  assert.equal(arrayTag`bow ${'foo'}`, 'BOW DOGE');
 });
 
 test('supports tail processing of another tag if first argument to tag is a tag', () => {
@@ -185,19 +192,19 @@ test('supports tail processing of another tag if first argument to tag is a tag'
     foo bar
     ${500}
   `;
-  expect(raw).toBe('FOO BAR\n    500');
+  assert.equal(raw, 'FOO BAR\n    500');
 });
 
 test('has the correct order when tail processing', () => {
   const upperCaseTag = createTag({
     onEndResult(endResult) {
-      expect(endResult).toBe('foo bar\n    500');
+      assert.equal(endResult, 'foo bar\n    500');
       return endResult.toUpperCase();
     },
   });
   const trimTag = createTag({
     onEndResult(endResult) {
-      expect(endResult).toBe('\n    foo bar\n    500\n  ');
+      assert.equal(endResult, '\n    foo bar\n    500\n  ');
       return endResult.trim();
     },
   });
@@ -205,10 +212,10 @@ test('has the correct order when tail processing', () => {
     foo bar
     ${500}
   `;
-  expect(raw).toBe('FOO BAR\n    500');
+  assert.equal(raw, 'FOO BAR\n    500');
 });
 
-describe('supports using the tag as a plain function', () => {
+suite('supports using the tag as a plain function', () => {
   test('with a string', () => {
     let onStringCalls = 0;
     let onSubstitutionCalls = 0;
@@ -230,10 +237,10 @@ describe('supports using the tag as a plain function', () => {
       foo bar
       ${500}
     `);
-    expect(raw).toBe('FOO BAR\n      500');
-    expect(onStringCalls).toBe(1);
-    expect(onSubstitutionCalls).toBe(0);
-    expect(onEndResultCalls).toBe(1);
+    assert.equal(raw, 'FOO BAR\n      500');
+    assert.equal(onStringCalls, 1);
+    assert.equal(onSubstitutionCalls, 0);
+    assert.equal(onEndResultCalls, 1);
   });
 
   test('with a number', () => {
@@ -247,22 +254,24 @@ describe('supports using the tag as a plain function', () => {
       },
     });
     const raw = tag(42);
-    expect(raw).toBe('42');
-    expect(onSubstitutionCalls).toBe(0);
+    assert.equal(raw, '42');
+    assert.equal(onSubstitutionCalls, 0);
   });
+
+  test.run();
 });
 
 test('transforms substitutions to string as per spec', () => {
   const get = jest
     .fn()
     .mockImplementationOnce((target, prop) => {
-      expect(prop).toBe(Symbol.toPrimitive);
+      assert.equal(prop, Symbol.toPrimitive);
     })
     .mockImplementationOnce((target, prop) => {
-      expect(prop).toBe('toString');
+      assert.equal(prop, 'toString');
     })
     .mockImplementationOnce((target, prop) => {
-      expect(prop).toBe('valueOf');
+      assert.equal(prop, 'valueOf');
       return () => 42;
     });
 
@@ -270,8 +279,8 @@ test('transforms substitutions to string as per spec', () => {
   const tag = createTag();
   const result = tag`foo ${val} bar`;
 
-  expect(get).toHaveBeenCalledTimes(3);
-  expect(result).toBe('foo 42 bar');
+  assert.equal(get).toHaveBeenCalledTimes(3);
+  assert.equal(result, 'foo 42 bar');
 });
 
 test('accepts other tags as arguments and applies them in order', () => {
@@ -296,5 +305,8 @@ test('accepts other tags as arguments and applies them in order', () => {
     },
   });
 
-  expect(superTag`foo`).toBe('foo1234');
+  assert.equal(superTag`foo`, 'foo1234');
 });
+
+test.run();
+suite();

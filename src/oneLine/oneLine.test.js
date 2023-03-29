@@ -11,7 +11,7 @@ test('reduces text to one line, replacing newlines with spaces', () => {
     at one line neat
     from multiline
   `;
-  expect(actual).toBe(expected);
+  assert.equal(actual, expected);
 });
 
 test('reduces text to one line, replacing newlines with spaces (no indentation)', () => {
@@ -23,7 +23,7 @@ at one line neat
 
 from multiline
   `;
-  expect(actual).toBe(expected);
+  assert.equal(actual, expected);
 });
 
 test('preserves whitespace within input lines, replacing only newlines', () => {
@@ -32,5 +32,5 @@ test('preserves whitespace within input lines, replacing only newlines', () => {
     Sentences also work.  Double
     spacing is preserved.
   `;
-  expect(actual).toBe(expected);
+  assert.equal(actual, expected);
 });

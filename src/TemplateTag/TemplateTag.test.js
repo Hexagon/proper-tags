@@ -7,18 +7,18 @@ beforeEach(() => {
 });
 
 test('a warning should be printed the first time a TemplateTag is constructed', () => {
-  expect(console.warn).toHaveBeenCalledTimes(0);
+  assert.equal(console.warn).toHaveBeenCalledTimes(0);
 
   new TemplateTag();
 
-  expect(console.warn).toHaveBeenCalledTimes(1);
-  expect(console.warn).toHaveBeenCalledWith(
+  assert.equal(console.warn).toHaveBeenCalledTimes(1);
+  assert.equal(console.warn).toHaveBeenCalledWith(
     expect.stringContaining('Use createTag instead'),
   );
 
   new TemplateTag();
 
-  expect(console.warn).toHaveBeenCalledTimes(1);
+  assert.equal(console.warn).toHaveBeenCalledTimes(1);
 });
 
 /* eslint-enable no-console */
@@ -40,7 +40,7 @@ test('performs a transformation & provides correct values to transform methods',
     },
   });
   const data = tag`foo ${'bar'} baz ${'fizz'}`;
-  expect(data).toEqual({
+  assert.equal(data).toEqual({
     endResult: 'FOO BAR BAZ FIZZ',
     strings: ['foo ', ' baz ', ''],
     subs: [

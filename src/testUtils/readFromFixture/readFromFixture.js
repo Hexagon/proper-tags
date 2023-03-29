@@ -7,7 +7,7 @@ import path from 'path';
  * @param  {String} name - the name of the fixture you want to read
  * @return {Promise<String>} - the retrieved fixture's file contents
  */
-export default function readFromFixture(dirname, name) {
+export function readFromFixture(dirname, name) {
   const contents = fs.readFileSync(
     path.join(dirname, `fixtures/${name}.txt`),
     'utf8',

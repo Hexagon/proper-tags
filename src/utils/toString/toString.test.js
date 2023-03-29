@@ -4,19 +4,19 @@ test('transforms values to string as per spec', () => {
   const get = jest
     .fn()
     .mockImplementationOnce((target, prop) => {
-      expect(prop).toBe(Symbol.toPrimitive);
+      assert.equal(prop, Symbol.toPrimitive);
     })
     .mockImplementationOnce((target, prop) => {
-      expect(prop).toBe('toString');
+      assert.equal(prop, 'toString');
     })
     .mockImplementationOnce((target, prop) => {
-      expect(prop).toBe('valueOf');
+      assert.equal(prop, 'valueOf');
       return () => 42;
     });
 
   const val = new Proxy({}, { get });
   const result = toString(val);
 
-  expect(get).toHaveBeenCalledTimes(3);
-  expect(result).toBe('42');
+  assert.equal(get).toHaveBeenCalledTimes(3);
+  assert.equal(result, '42');
 });

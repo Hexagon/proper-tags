@@ -7,4 +7,4 @@ const commaListsAnd = createTag(
   stripIndent,
 );
 
-export{ commaListsAnd };
+export { commaListsAnd };

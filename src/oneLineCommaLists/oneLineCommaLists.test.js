@@ -10,5 +10,5 @@ test('includes arrays as comma-separated list on one line', () => {
     Doge <3's these fruits: ${fruits}
     they are ${val}
   `;
-  expect(actual).toBe(expected);
+  assert.equal(actual, expected);
 });

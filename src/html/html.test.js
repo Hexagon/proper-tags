@@ -14,7 +14,7 @@ test('renders HTML, including arrays', () => {
     </ul>
   `;
 
-  expect(actual).toBe(expected);
+  assert.equal(actual, expected);
 });
 
 test('converts strings containing newlines into proper indented output', () => {
@@ -28,7 +28,7 @@ test('converts strings containing newlines into proper indented output', () => {
     </ul>
   `;
 
-  expect(actual).toBe(expected);
+  assert.equal(actual, expected);
 });
 
 test('does not introduce excess newlines', () => {
@@ -48,7 +48,7 @@ test('does not introduce excess newlines', () => {
   `;
   /* eslint-enable prettier/prettier */
 
-  expect(actual).toBe(expected);
+  assert.equal(actual, expected);
 });
 
 test('renders nested HTML', () => {
@@ -74,7 +74,7 @@ test('renders nested HTML', () => {
     </html>
   `;
 
-  expect(actual).toBe(expected);
+  assert.equal(actual, expected);
 });
 
 test('renders nested HTML without excess empty lines', () => {
@@ -104,7 +104,7 @@ test('renders nested HTML without excess empty lines', () => {
   `;
   /* eslint-enable prettier/prettier */
 
-  expect(actual).toBe(expected);
+  assert.equal(actual, expected);
 });
 
 test("just strips indent when there's an empty array inside", () => {
@@ -120,7 +120,7 @@ test("just strips indent when there's an empty array inside", () => {
   `;
   /* eslint-enable prettier/prettier */
 
-  expect(actual).toBe(expected);
+  assert.equal(actual, expected);
 });
 
 test("just strips indent when there's an empty array inside (multiline)", () => {
@@ -136,7 +136,7 @@ test("just strips indent when there's an empty array inside (multiline)", () => 
     </html>
   `;
 
-  expect(actual).toBe(expected);
+  assert.equal(actual, expected);
 });
 
 test('may not indent as expected when the array is not in a new line', () => {
@@ -162,5 +162,5 @@ test('may not indent as expected when the array is not in a new line', () => {
   `;
   /* eslint-enable prettier/prettier */
 
-  expect(actual).toBe(expected);
+  assert.equal(actual, expected);
 });
