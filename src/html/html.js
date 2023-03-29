@@ -5,9 +5,10 @@ import { splitStringTransformer } from '../splitStringTransformer/index.js';
 import { removeNonPrintingValuesTransformer } from '../removeNonPrintingValuesTransformer/index.js';
 
 /**
- * An HTML tag function that processes a template literal and returns an HTML string.
- * @type {TemplateTag}
- */
+ * A function that returns an HTML string by processing a template literal or a JSTag function.
+ * @function
+ * @implements {TemplateTag}
+*/
 const html = createTag(
   splitStringTransformer('\n'),
   removeNonPrintingValuesTransformer(),

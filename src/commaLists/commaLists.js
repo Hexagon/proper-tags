@@ -4,7 +4,7 @@ import { inlineArrayTransformer } from '../inlineArrayTransformer/index.js';
 
 /**
  * Allows you to inline an array substitution as a comma-separated list.
- * @type {TemplateTag}
+ * @implements {TemplateTag}
  */
 const commaLists = createTag(
   inlineArrayTransformer({ separator: ',' }),

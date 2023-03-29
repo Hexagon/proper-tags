@@ -4,6 +4,12 @@ import { inlineArrayTransformer } from '../inlineArrayTransformer/index.js';
 import { splitStringTransformer } from '../splitStringTransformer/index.js';
 import { replaceSubstitutionTransformer } from '../replaceSubstitutionTransformer/index.js';
 
+/**
+ * A tag very similar to `html` but it does safe HTML escaping for strings coming from substitutions.
+ * When combined with regular `html` tag, you can do basic HTML templating that is safe from
+ * XSS (Cross-Site Scripting) attacks.
+ * @implements {TemplateTag}
+ */
 const safeHtml = createTag(
   splitStringTransformer('\n'),
   inlineArrayTransformer(),
