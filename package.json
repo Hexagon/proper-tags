@@ -1,7 +1,7 @@
 {
   "name": "proper-tags",
   "description": "A few common utility template tags for ES2015",
-  "version": "2.0.0-alpha.2",
+  "version": "2.0.0-alpha.3",
   "author": "Hexagon <https://github.com/hexagon>",
   "bugs": {
     "url": "http://github.com/declandewet/common-tags/issues"
@@ -85,11 +85,11 @@
     ".": {
       "import": {
         "types": "./types/proper-tags.d.ts",
-        "default": "./dist/proper-tags.min.js"
+        "default": "./dist/proper-tags.js"
       },
       "require": {
         "types": "./types/proper-tags.d.cts",
-        "default": "./dist/proper-tags.min.cjs"
+        "default": "./dist/proper-tags.cjs"
       },
       "browser": "./dist/proper-tags.umd.js"
     }
