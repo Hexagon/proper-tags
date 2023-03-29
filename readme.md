@@ -1,13 +1,4 @@
-# proper-tags (common-tags rebooted)
-
-Meet proper-tags, a refreshed and improved fork of the widely-used common-tags package, updated to meet the demands of modern JavaScript development. This updated package incorporates several key enhancements that make it more accessible for today's development workflows:
-
-* **Enhanced ESM Support:** proper-tags now offers full compliance with ECMAScript Modules, facilitating seamless integration with popular bundlers such as Webpack and Rollup, as well as native support in Deno and Bun (and Node, of course)
-* **Native TypeScript Typings:** With built-in TypeScript typings, proper-tags streamlines the development process for TypeScript users, providing a smoother experience overall.
-Deno Compatibility: proper-tags has been adapted to ensure compatibility with the Deno runtime, allowing developers to leverage its capabilities in Deno-based projects.
-* **Unchanged interface:** Fully compatible with existing guides and frameworks.
-
-## Original Readme
+# proper-tags (commmon-tags rebooted)
 
 🔖 A set of **well-tested**, commonly used template literal tag functions, 
 
@@ -16,7 +7,7 @@ Deno Compatibility: proper-tags has been adapted to ensure compatibility with th
 ## Example
 
 ```js
-import { html } from 'common-tags';
+import { html } from 'proper-tags';
 
 html`
   <div id="user-card">
@@ -25,173 +16,73 @@ html`
 `
 ```
 
-## Project Status
-
-| Info       | Badges                                   |
-| ---------- | ---------------------------------------- |
-| Version    | [![github release](https://img.shields.io/github/release/declandewet/common-tags.svg?style=flat-square)](https://github.com/declandewet/common-tags/releases/latest) [![npm version](https://img.shields.io/npm/v/common-tags.svg?style=flat-square)](http://npmjs.org/package/common-tags) |
-| License    | [![npm license](https://img.shields.io/npm/l/common-tags.svg?style=flat-square)](https://github.com/declandewet/common-tags/blob/master/license.md) |
-| Popularity | [![npm downloads](https://img.shields.io/npm/dm/common-tags.svg?style=flat-square)](http://npm-stat.com/charts.html?package=common-tags) |
-| Testing    | [![Build status](https://ci.appveyor.com/api/projects/status/75eiommx0llt3sgd?svg=true)](https://ci.appveyor.com/project/declandewet/common-tags) [![build status](https://img.shields.io/travis/declandewet/common-tags.svg?style=flat-square)](https://travis-ci.org/declandewet/common-tags) [![codecov.io](https://img.shields.io/codecov/c/gh/declandewet/common-tags.svg?style=flat-square)](https://codecov.io/gh/declandewet/common-tags?branch=master) |
-| Quality    | [![dependency status](https://img.shields.io/david/declandewet/common-tags.svg?style=flat-square)](https://david-dm.org/declandewet/common-tags) [![dev dependency status](https://img.shields.io/david/dev/declandewet/common-tags.svg?style=flat-square)](https://david-dm.org/declandewet/common-tags#info=devDependencies) |
-| Style      | [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier) |
-
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-## Table of Contents
-
-- [Introduction](#introduction)
-- [Why You Should Care](#why-you-should-care)
-- [See Who Is Using `common-tags`](#see-who-is-using-common-tags)
-- [Installation](#installation)
-  - [Requirements](#requirements)
-  - [Instructions](#instructions)
-  - [With unpkg](#with-unpkg)
-- [Usage](#usage)
-  - [Imports](#imports)
-  - [Available Tags](#available-tags)
-    - [`html`](#html)
-      - [Aliases: `source`, `codeBlock`](#aliases-source-codeblock)
-    - [`safeHtml`](#safehtml)
-    - [`oneLine`](#oneline)
-    - [`oneLineTrim`](#onelinetrim)
-    - [`stripIndent`](#stripindent)
-    - [`stripIndents`](#stripindents)
-    - [`inlineLists`](#inlinelists)
-    - [`oneLineInlineLists`](#onelineinlinelists)
-    - [`commaLists`](#commalists)
-    - [`commaListsOr`](#commalistsor)
-    - [`commaListsAnd`](#commalistsand)
-    - [`oneLineCommaLists`](#onelinecommalists)
-    - [`oneLineCommaListsOr`](#onelinecommalistsor)
-    - [`oneLineCommaListsAnd`](#onelinecommalistsand)
-    - [`id`](#id)
-- [Advanced Usage](#advanced-usage)
-  - [Tail Processing](#tail-processing)
-  - [Using Tags on Regular String Literals](#using-tags-on-regular-string-literals)
-  - [Type Definitions](#type-definitions)
-  - [Make Your Own Template Tag](#make-your-own-template-tag)
-    - [Where It All Starts: createTag](#where-it-all-starts-createtag)
-    - [The Anatomy of a Transformer](#the-anatomy-of-a-transformer)
-    - [Plugin Transformers](#plugin-transformers)
-    - [Plugin Pipeline](#plugin-pipeline)
-    - [Returning Other Values from a Transformer](#returning-other-values-from-a-transformer)
-    - [List of Built-in Transformers](#list-of-built-in-transformers)
-      - [`trimResultTransformer([side])`](#trimresulttransformerside)
-      - [`stripIndentTransformer([type='initial'])`](#stripindenttransformertypeinitial)
-      - [`replaceResultTransformer(replaceWhat, replaceWith)`](#replaceresulttransformerreplacewhat-replacewith)
-      - [`replaceSubstitutionTransformer(replaceWhat, replaceWith)`](#replacesubstitutiontransformerreplacewhat-replacewith)
-      - [`replaceStringTransformer(replaceWhat, replaceWith)`](#replacestringtransformerreplacewhat-replacewith)
-      - [`inlineArrayTransformer(opts)`](#inlinearraytransformeropts)
-      - [`splitStringTransformer(splitBy)`](#splitstringtransformersplitby)
-- [How to Contribute](#how-to-contribute)
-- [License](#license)
-- [Other ES2015 Template Tag Modules](#other-es2015-template-tag-modules)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
 ## Introduction
 
-`common-tags` initially started out as two template tags I'd always find myself writing - one for stripping indents, and one for trimming multiline strings down to a single line. In its prime, I was an avid user of [CoffeeScript](http://coffeescript.org), which had this behaviour by default as part of its block strings feature. I also started out programming in Ruby, which has a similar mechanism called Heredocs.
+Meet proper-tags, a refreshed and improved fork of the widely-used common-tags package, updated to meet the demands of modern JavaScript development. This updated package incorporates several key enhancements that make it more accessible for today's development workflows:
 
-Over time, I found myself needing a few more template tags to cover edge cases - ones that supported including arrays, or ones that helped to render out tiny bits of HTML not large enough to deserve their own file or an entire template engine. So I packaged all of these up into this module.
-
-As more features were proposed, and I found myself needing a way to override the default settings to cover even more edge cases, I realized that my initial implementation wouldn't be easy to scale.
-
-So I re-wrote this module on top of a core architecture that makes use of transformer plugins which can be composed, imported independently and re-used.
-
-## Why You Should Care
-
-Tagged templates in ES2015 are a welcome feature. But, they have their downsides. One such downside is that they preserve all whitespace by default - which makes multiline strings in source code look terrible.
-
-Source code is not just for computers to interpret. Humans have to read it too 😁. If you care at all about how neat your source code is, or come from a [CoffeeScript](http://coffeescript.org/) background and miss the [block string syntax](http://coffeescript.org/#strings), then you will love `common-tags`, as it was initially intended to bring this feature "back" to JS since its [initial commit](https://github.com/declandewet/common-tags/commit/2595288d6c276439d98d1bcbbb0aa113f4f7cd86).
-
-`common-tags` also [exposes a means of composing pipelines of dynamic transformer plugins](#plugin-transformers). As someone with a little experience writing tagged templates, I can admit that it is often the case that one tag might need to do the same thing as another tag before doing any further processing; for example - a typical tag that renders out HTML could strip initial indents first, then worry about handling character escapes. Both steps could easily be useful as their own separate template tags, but there isn't an immediately obvious way of composing the two together for maximum re-use. `common-tags` offers not [one](#tail-processing), but [two](#plugin-pipeline) ways of doing this.
-
-Furthermore, I try to keep this project as transparently stable and updated as frequently as I possibly can. As you may have already seen by the [project status table](#project-status), `common-tags` is linted, well tested, tests are well covered, tests pass on both Unix and Windows operating systems, the popularity bandwidth is easily referenced and dependency health is in plain sight 😄. `common-tags` is also already [used in production on a number of proprietary sites and dependent projects](#see-who-is-using-common-tags), and [contributions are always welcome](#how-to-contribute), as are [suggestions](issues).
-
-## See Who Is Using `common-tags`
-
-- **[Slack](https://slack.com/)** ([ref](https://slack.com/libs/desktop))
-- **[Discord](https://discordapp.com)** ([ref](https://discordapp.com/acknowledgements))
-- **[CircleCI](https://circleci.com)** ([ref](https://circleci.com/docs/2.0/open-source/))
-- **[Confluent](https://www.confluent.io/)** ([ref](https://www.confluent.io/third_party_software/))
-- **[Tessel](https://tessel.io/)** ([ref](https://github.com/tessel/t2-cli/blob/575ddb23f432d10f86b76f5cdca866d1146dedf5/package.json#L56))
-- **[Ember.js](https://www.emberjs.com/)** ([ref](https://github.com/emberjs/ember.js/blob/cacefee49ea4be2621a0ced3e4ceb0010d6cd841/package.json#L93))
-- **[Angular](https://angularjs.org/)** ([ref](https://github.com/angular/angular-cli/blob/90e2e805aae6e0bd2e00e52063221736a8d9cb0c/package.json#L50))
-- **[Prettier](https://prettier.io/)** ([ref](https://github.com/prettier/prettier-eslint/blob/49b762b57b7e7af3b06bd933050c614a91b6742d/package.json#L18))
-- **[Apollo](https://www.apollographql.com)** ([ref](https://github.com/apollographql/apollo-codegen/blob/b9b9a2afd851fa3cba786b26684b26378b1a6f53/package.json#L48))
-- **[Workbox](https://developers.google.com/web/tools/workbox/)** ([ref](https://github.com/GoogleChrome/workbox/blob/d391a0cb51b3e89121c5274fb15f05988233b57e/package.json#L64))
-- **[Gatsby](https://www.gatsbyjs.org/)** ([ref](https://github.com/gatsbyjs/gatsby/blob/3af191c9961b6da1cc04e9cb0a03787af25878db/packages/gatsby-cli/package.json#L16))
-- **[Storybook](https://storybook.js.org/)** ([ref](https://github.com/storybooks/storybook/blob/c275e5c508714bd1a49342e51ddf00bbdb54d277/app/react/package.json#L46))
-- **[Cypress](https://www.cypress.io/)** ([ref](https://github.com/cypress-io/cypress/blob/5d761630f233abb30b9b2e3fede9a4c4887cf880/cli/package.json#L44))
-- **[stylelint](http://stylelint.io/)** ([ref](https://github.com/stylelint/stylelint/blob/5dc5db5599a00cabc875cf99c56d60f93fbbbd2d/package.json#L82))
-- **[pnpm](https://pnpm.js.org/)** ([ref](https://github.com/pnpm/pnpm/blob/36be3d3f0c75992a1f3ff14b60c99115547d0fcc/package.json#L36))
-- **[jss](http://cssinjs.org/)** ([ref](https://github.com/cssinjs/jss/blob/7b9c1222893495c585b4b61d7ca9af05077cefec/package.json#L44))
-- **[BitMidi](https://bitmidi.com/)** ([ref](https://github.com/feross/bitmidi.com/blob/b6cd24f535eaefcbe472063ad5da8418055d77a2/package.json#L68))
-
+* **Enhanced ESM Support:** proper-tags now offers full compliance with ECMAScript Modules, facilitating seamless integration with popular bundlers such as Webpack and Rollup, as well as native support in Deno and Bun (and Node, of course)
+* **Native TypeScript Typings:** With built-in TypeScript typings, proper-tags streamlines the development process for TypeScript users, providing a smoother experience overall.
+Deno Compatibility: proper-tags has been adapted to ensure compatibility with the Deno runtime, allowing developers to leverage its capabilities in Deno-based projects.
+* **Unchanged interface:** Fully compatible with existing guides and frameworks.
 
 ## Installation
 
-### Requirements
+### Node
 
-The official recommendation for running `common-tags` is as follows:
+Install
 
-- [Node.js](https://nodejs.org/en/download/) v5.0.0 or higher
-- In order to use `common-tags`, your environment will also need to support ES2015 tagged templates ([pssst… check Babel out](http://babeljs.io))
-- You might also want to [polyfill some features](https://github.com/zloirock/core-js) if you plan on supporting older browsers: `Array.prototype.includes`
-
-Use the upcoming release for more modern environments:
-
-- [Node.js](https://nodejs.org/en/download/) v14.0.0 or higher
-- In order to use `common-tags`, your environment will need to support ECMAScript modules
-
-### Instructions
-
-`common-tags` is a [Node](https://nodejs.org/) module. So, as long as you have Node.js and NPM installed, installing `common-tags` is as simple as running this in a terminal at the root of your project:
-
-```sh
-npm install common-tags
+```js
+npm install proper-tags
 ```
 
-Or for the upcoming release:
-```sh
-npm install common-tags@next
+ESM Import:
+
+```js
+import { stripIndent } from 'proper-tags';
 ```
 
-### With unpkg
+Legacy CommonJS Require:
 
-`common-tags` is also available at [unpkg](https://unpkg.com/common-tags). Just put this code in your HTML:
+```js
+const { stripIndent } = require('proper-tags');
+```
+
+### Deno 
+
+To use `proper-tags` with **Deno**, import it from deno.land:
+
+```js
+import { html } from 'https://deno.land/x/proper_tags/dist/proper-tags.js';
+```
+
+> **Note:** Make sure to freeze the url to a specific version
+
+### CDN/Browser
+
+To include proper-tags via **jsdelivr**, add the following script tag to your HTML file:
 
 ```html
-<script src="https://unpkg.com/common-tags"></script>
+<script src="https://cdn.jsdelivr.net/npm/proper-tags@2.0.0-alpha.1/dist/proper-tags.umd.js"></script>
 ```
 
-This will make the library available under a global variable `commonTags`.
+> **Note:** Make sure to replace `2.0.0-alpha.1` with the latest version
+
 
 ## Usage
 
 ### Imports
 
-Like all modules, `common-tags` begins with an `import`. In fact, `common-tags` supports two styles of import:
+Like all modules, `proper-tags` begins with an `import`. In fact, `proper-tags` supports two styles of import:
 
 **Named imports:**
 
 ```js
-import {stripIndent} from 'common-tags'
-```
-
-**Direct module imports:**
-
-*(Useful if your bundler doesn't support [tree shaking](https://medium.com/@roman01la/dead-code-elimination-and-tree-shaking-in-javascript-build-systems-fb8512c86edf#.p30lbjm94) but you still want to only include modules you need).*
-
-```js
-import stripIndent from 'common-tags/lib/stripIndent'
+import {stripIndent} from 'proper-tags'
 ```
 
 ### Available Tags
 
-`common-tags` exports a bunch of wonderful pre-cooked template tags for your eager consumption. They are as follows:
+`proper-tags` exports a bunch of wonderful pre-cooked template tags for your eager consumption. They are as follows:
 
 #### `html`
 
@@ -200,7 +91,7 @@ import stripIndent from 'common-tags/lib/stripIndent'
 You'll often find that you might want to include an array in a template. Typically, doing something like `${array.join(', ')}` would work - but what if you're printing a list of items in an HTML template and want to maintain the indentation? You'd have to count the spaces manually and include them in the `.join()` call - which is a bit *ugly* for my taste. This tag properly indents arrays, as well as newline characters in string substitutions, by converting them to an array split by newline and re-using the same array inclusion logic:
 
 ```js
-import {html} from 'common-tags'
+import {html} from 'proper-tags'
 let fruits = ['apple', 'orange', 'watermelon']
 html`
   <div class="list">
@@ -231,7 +122,7 @@ Outputs:
 A tag very similar to `html` but it does safe HTML escaping for strings coming from substitutions. When combined with regular `html` tag, you can do basic HTML templating that is safe from XSS (Cross-Site Scripting) attacks.
 
 ```js
-import {html, safeHtml} from 'common-tags'
+import {html, safeHtml} from 'proper-tags'
 let userMessages = ['hi', 'what are you up to?', '<script>alert("something evil")</script>']
 html`
   <div class="chat-list">
@@ -259,7 +150,7 @@ Outputs:
 Allows you to keep your single-line strings under 80 characters without resorting to crazy string concatenation.
 
 ```js
-import {oneLine} from 'common-tags'
+import {oneLine} from 'proper-tags'
 
 oneLine`
   foo
@@ -274,7 +165,7 @@ oneLine`
 Allows you to keep your single-line strings under 80 characters while trimming the new lines:
 
 ```js
-import {oneLineTrim} from 'common-tags'
+import {oneLineTrim} from 'proper-tags'
 
 oneLineTrim`
   https://news.com/article
@@ -288,7 +179,7 @@ oneLineTrim`
 If you want to strip the initial indentation from the beginning of each line in a multiline string:
 
 ```js
-import {stripIndent} from 'common-tags'
+import {stripIndent} from 'proper-tags'
 
 stripIndent`
   This is a multi-line string.
@@ -309,7 +200,7 @@ Important note: this tag will not indent multiline strings coming from the subst
 If you want to strip *all* of the indentation from the beginning of each line in a multiline string:
 
 ```js
-import {stripIndents} from 'common-tags'
+import {stripIndents} from 'proper-tags'
 
 stripIndents`
   This is a multi-line string.
@@ -328,7 +219,7 @@ stripIndents`
 Allows you to inline an array substitution as a list:
 
 ```js
-import {inlineLists} from 'common-tags'
+import {inlineLists} from 'proper-tags'
 
 inlineLists`
   I like ${['apples', 'bananas', 'watermelons']}
@@ -343,7 +234,7 @@ inlineLists`
 Allows you to inline an array substitution as a list, rendered out on a single line:
 
 ```js
-import {oneLineInlineLists} from 'common-tags'
+import {oneLineInlineLists} from 'proper-tags'
 
 oneLineInlineLists`
   I like ${['apples', 'bananas', 'watermelons']}
@@ -357,7 +248,7 @@ oneLineInlineLists`
 Allows you to inline an array substitution as a comma-separated list:
 
 ```js
-import {commaLists} from 'common-tags'
+import {commaLists} from 'proper-tags'
 
 commaLists`
   I like ${['apples', 'bananas', 'watermelons']}
@@ -372,7 +263,7 @@ commaLists`
 Allows you to inline an array substitution as a comma-separated list, the last of which is preceded by the word "or":
 
 ```js
-import {commaListsOr} from 'common-tags'
+import {commaListsOr} from 'proper-tags'
 
 commaListsOr`
   I like ${['apples', 'bananas', 'watermelons']}
@@ -387,7 +278,7 @@ commaListsOr`
 Allows you to inline an array substitution as a comma-separated list, the last of which is preceded by the word "and":
 
 ```js
-import {commaListsAnd} from 'common-tags'
+import {commaListsAnd} from 'proper-tags'
 
 commaListsAnd`
   I like ${['apples', 'bananas', 'watermelons']}
@@ -402,7 +293,7 @@ commaListsAnd`
 Allows you to inline an array substitution as a comma-separated list, and is rendered out on to a single line:
 
 ```js
-import {oneLineCommaLists} from 'common-tags'
+import {oneLineCommaLists} from 'proper-tags'
 
 oneLineCommaLists`
   I like ${['apples', 'bananas', 'watermelons']}
@@ -416,7 +307,7 @@ oneLineCommaLists`
 Allows you to inline an array substitution as a comma-separated list, the last of which is preceded by the word "or", and is rendered out on to a single line:
 
 ```js
-import {oneLineCommaListsOr} from 'common-tags'
+import {oneLineCommaListsOr} from 'proper-tags'
 
 oneLineCommaListsOr`
   I like ${['apples', 'bananas', 'watermelons']}
@@ -430,7 +321,7 @@ oneLineCommaListsOr`
 Allows you to inline an array substitution as a comma-separated list, the last of which is preceded by the word "and", and is rendered out on to a single line:
 
 ```js
-import {oneLineCommaListsAnd} from 'common-tags'
+import {oneLineCommaListsAnd} from 'proper-tags'
 
 oneLineCommaListsAnd`
   I like ${['apples', 'bananas', 'watermelons']}
@@ -444,7 +335,7 @@ oneLineCommaListsAnd`
 A no-op tag that might come in useful in some scenarios, e.g. mocking.
 
 ```js
-import {id} from 'common-tags'
+import {id} from 'proper-tags'
 
 id`hello ${'world'}`
 // hello world
@@ -457,7 +348,7 @@ id`hello ${'world'}`
 It's possible to pass the output of a tagged template to another template tag in pure ES2015+:
 
 ```js
-import {oneLine} from 'common-tags'
+import {oneLine} from 'proper-tags'
 
 oneLine`
   ${String.raw`
@@ -468,10 +359,10 @@ oneLine`
 // "foo bar\nbaz"
 ```
 
-We can make this neater. Every tag `common-tags` exports can delay execution if it receives a function as its first argument. This function is assumed to be a template tag, and is called via an intermediary tagging process before the result is passed back to our tag. Use it like so (this code is equivalent to the previous code block):
+We can make this neater. Every tag `proper-tags` exports can delay execution if it receives a function as its first argument. This function is assumed to be a template tag, and is called via an intermediary tagging process before the result is passed back to our tag. Use it like so (this code is equivalent to the previous code block):
 
 ```js
-import {oneLine} from 'common-tags'
+import {oneLine} from 'proper-tags'
 
 oneLine(String.raw)`
   foo
@@ -485,7 +376,7 @@ oneLine(String.raw)`
 Sometimes you might want to use a tag on a normal string (e.g. for stripping the indentation). For that purpose just call a tag as a function with the passed string:
 
 ```js
-import {stripIndent} from 'common-tags'
+import {stripIndent} from 'proper-tags'
 
 stripIndent("  foo\n    bar")
 // "foo\n  bar"
@@ -493,27 +384,27 @@ stripIndent("  foo\n    bar")
 
 ### Type Definitions
 
-There are third-party type definitions for `common-tags` on [npm](https://www.npmjs.com/package/@types/common-tags). Just install them like so:
+There are third-party type definitions for `proper-tags` on [npm](https://www.npmjs.com/package/@types/proper-tags). Just install them like so:
 
 ```sh
-npm install @types/common-tags
+npm install @types/proper-tags
 ```
 
 Please note that these type definitions are not officially maintained by the authors of
-`common-tags` - they are maintained by the TypeScript community.
+`proper-tags` - they are maintained by the TypeScript community.
 
 ### Make Your Own Template Tag
 
-`common-tags` exposes an interface that allows you to painlessly create your own template tags.
+`proper-tags` exposes an interface that allows you to painlessly create your own template tags.
 
 #### Where It All Starts: createTag
 
-`common-tags` exports a `createTag` function. This function is the foundation of `common-tags`. The concept of the function works on the premise that transformations occur on a template either when the template is finished being processed (`onEndResult`), or when the tag encounters a string (`onString`) or a substitution (`onSubstitution`). Any tag produced by this function supports [tail processing](#tail-processing).
+`proper-tags` exports a `createTag` function. This function is the foundation of `proper-tags`. The concept of the function works on the premise that transformations occur on a template either when the template is finished being processed (`onEndResult`), or when the tag encounters a string (`onString`) or a substitution (`onSubstitution`). Any tag produced by this function supports [tail processing](#tail-processing).
 
 The easiest tag to create is a tag that does nothing:
 
 ```js
-import {createTag} from 'common-tags'
+import {createTag} from 'proper-tags'
 
 const doNothing = createTag()
 
@@ -649,7 +540,7 @@ process`
 
 #### List of Built-in Transformers
 
-Since `common-tags` is built on the foundation of this createTag function, it comes with its own set of built-in transformers:
+Since `proper-tags` is built on the foundation of this createTag function, it comes with its own set of built-in transformers:
 
 ##### `trimResultTransformer([side])`
 
@@ -697,8 +588,9 @@ MIT. See [license.md](license.md).
 
 ## Other ES2015 Template Tag Modules
 
-If `common-tags` doesn't quite fit your bill, and you just can't seem to find what you're looking for - perhaps these might be of use to you?
+If `proper-tags` doesn't quite fit your bill, and you just can't seem to find what you're looking for - perhaps these might be of use to you?
 
+- [common-tags](https://github.com/zspecza/common-tags) - the original which this repository where forked from
 - [tage](https://www.npmjs.com/package/tage) - make functions work as template tags too
 - [is-tagged](https://www.npmjs.com/package/is-tagged) - Check whether a function call is initiated by a tagged template string or invoked in a regular way
 - [es6-template-strings](https://www.npmjs.com/package/es6-template-strings) - Compile and resolve template strings notation as specified in ES6
