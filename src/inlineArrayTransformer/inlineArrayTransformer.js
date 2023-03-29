@@ -46,4 +46,4 @@ const inlineArrayTransformer = ({
   },
 });
 
-export default inlineArrayTransformer;
+export { inlineArrayTransformer };

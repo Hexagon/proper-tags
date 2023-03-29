@@ -1,1 +1,1 @@
-export default from './oneLine.js';
+export { oneLine } from './oneLine.js';

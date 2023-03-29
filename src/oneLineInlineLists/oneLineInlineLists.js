@@ -1,7 +1,7 @@
-import createTag from '../createTag/index.js';
-import inlineArrayTransformer from '../inlineArrayTransformer/index.js';
-import trimResultTransformer from '../trimResultTransformer/index.js';
-import replaceResultTransformer from '../replaceResultTransformer/index.js';
+import { createTag } from '../createTag/index.js';
+import { inlineArrayTransformer } from '../inlineArrayTransformer/index.js';
+import { trimResultTransformer } from '../trimResultTransformer/index.js';
+import { replaceResultTransformer } from '../replaceResultTransformer/index.js';
 
 const oneLineInlineLists = createTag(
   inlineArrayTransformer(),
@@ -9,4 +9,4 @@ const oneLineInlineLists = createTag(
   trimResultTransformer(),
 );
 
-export default oneLineInlineLists;
+export { oneLineInlineLists };

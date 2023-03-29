@@ -1,5 +1,5 @@
-import createTag from '../createTag/index.js';
+import { createTag } from '../createTag/index.js';
 
 const id = createTag();
 
-export default id;
+export  { id };

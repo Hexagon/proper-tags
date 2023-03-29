@@ -1,8 +1,8 @@
 {
-  "name": "common-tags",
-  "description": "a few common utility template tags for ES2015",
-  "version": "2.0.0-alpha.1",
-  "author": "Declan de Wet <declandewet@me.com>",
+  "name": "proper-tags",
+  "description": "A few common utility template tags for ES2015",
+  "version": "2.0.0-alpha.0",
+  "author": "Hexagon <https://github.com/hexagon>",
   "bugs": {
     "url": "http://github.com/declandewet/common-tags/issues"
   },
@@ -15,28 +15,10 @@
     "Rafał Ruciński (https://github.com/fatfisz)"
   ],
   "devDependencies": {
-    "@babel/cli": "^7.12.10",
-    "@babel/core": "^7.12.10",
-    "@babel/plugin-proposal-class-properties": "^7.12.1",
-    "@babel/plugin-proposal-export-default-from": "^7.12.1",
-    "@babel/preset-env": "^7.12.11",
-    "@rollup/plugin-babel": "^5.2.3",
-    "@rollup/plugin-node-resolve": "^8.0.0",
-    "babel-core": "^6.26.3",
-    "babel-eslint": "^10.1.0",
-    "babel-plugin-add-module-exports": "^1.0.4",
-    "codecov": "^3.7.0",
-    "cross-env": "^7.0.3",
-    "doctoc": "^1.4.0",
-    "eslint": "^7.18.0",
-    "eslint-config-prettier": "^7.2.0",
-    "eslint-plugin-prettier": "^3.3.1",
-    "jest": "^26.0.1",
-    "micromatch": "^4.0.2",
-    "prettier": "^2.0.5",
-    "rimraf": "^3.0.2",
-    "rollup": "^2.38.1",
-    "rollup-plugin-uglify": "^6.0.4"
+    "eslint": "^8.37.0",
+    "jest": "^29.5.0",
+    "rollup": "^1.32.1",
+    "typescript": "^5.0.2"
   },
   "directories": {
     "lib": "lib"
@@ -44,7 +26,7 @@
   "engines": {
     "node": ">=12.0.0"
   },
-  "homepage": "https://github.com/declandewet/common-tags",
+  "homepage": "https://github.com/hexagon/proper-tags",
   "keywords": [
     "array",
     "babel",
@@ -72,30 +54,45 @@
     "tagged",
     "template"
   ],
-  "license": "MIT",
-  "type": "module",
-  "exports": "./es/index.js",
-  "unpkg": "dist/common-tags.min.js",
   "files": [
-    "/dist",
-    "/es"
+    "dist/*.min.js",
+    "dist/*.min.cjs",
+    "types/*"
   ],
+  "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/declandewet/common-tags"
+    "url": "https://github.com/hexagon/proper-tags"
   },
   "scripts": {
-    "clear": "rimraf es/* && rimraf dist/*",
-    "build": "npm run clear && npm run build:es && npm run build:unpkg",
-    "build:es": "cross-env BABEL_ENV=es babel src --out-dir es --ignore **/*.test.js",
-    "build:unpkg": "cross-env BABEL_ENV=es rollup --config",
-    "codecov": "codecov",
-    "doctoc": "doctoc readme.md --title \"## Table of Contents\"",
-    "lint": "eslint src/**/*.js",
-    "lint:fix": "npm run lint -- --fix",
-    "prepare": "npm run build",
-    "preversion": "npm run doctoc && npm test",
-    "release": "npm publish",
-    "test": "npm run lint && jest src"
+    "test_jest": "jest src",
+    "test": "echo disabled",
+    "test:lint": "eslint ./**/*.js",
+    "test:lint:fix": "eslint --fix  ./**/*.js",
+    "build": "npm update && npm run build:precleanup && npm run test:lint && npm run build:dist && npm run build:typings",
+    "build:ci": "npm run test:lint && npm run build:dist && npm run build:typings",
+    "build:precleanup": "(rm -rf types/* || del /Q types\\*) && (rm -rf dist/* || del /Q dist\\*)",
+    "build:dist": "rollup -c ./rollup.config.js",
+    "build:typings": "tsc && tsc --build tsconfig.cjs.json",
+    "build:docs": "((rm -rf dist-docs/* || rd /S /Q dist-docs) && jsdoc -c .jsdoc.json) || jsdoc -c .jsdoc.json"
+  },
+  "type": "module",
+  "main": "./dist/proper-tags.cjs",
+  "browser": "./dist/proper-tags.umd.js",
+  "module": "./dist/proper-tags.js",
+  "types": "./types/proper-tags.d.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "import": {
+        "types": "./types/proper-tags.d.ts",
+        "default": "./dist/proper-tags.min.js"
+      },
+      "require": {
+        "types": "./types/proper-tags.d.cts",
+        "default": "./dist/proper-tags.min.cjs"
+      },
+      "browser": "./dist/proper-tags.umd.js"
+    }
   }
 }

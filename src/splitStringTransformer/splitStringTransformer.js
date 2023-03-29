@@ -13,4 +13,4 @@ const splitStringTransformer = (splitBy) => {
   };
 };
 
-export default splitStringTransformer;
+export { splitStringTransformer };

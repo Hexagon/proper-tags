@@ -1,4 +1,4 @@
-import stripIndents from './stripIndents';
+import { stripIndents } from './stripIndents';
 import { readFromFixture } from '../testUtils';
 
 const val = 'amaze';

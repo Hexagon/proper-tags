@@ -1,0 +1,10 @@
+{
+    "include": ["dist/proper-tags.js"],
+    "compilerOptions": {
+      "allowJs": true,
+      "declaration": true,
+      "emitDeclarationOnly": true,
+      "esModuleInterop": true,
+      "outDir": "types"
+    }
+  }

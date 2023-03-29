@@ -13,4 +13,4 @@ const removeNonPrintingValuesTransformer = () => ({
   },
 });
 
-export default removeNonPrintingValuesTransformer;
+export { removeNonPrintingValuesTransformer };

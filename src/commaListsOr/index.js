@@ -1,1 +1,1 @@
-export default from './commaListsOr.js';
+export  { commaListsOr } from './commaListsOr.js';

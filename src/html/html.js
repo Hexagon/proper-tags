@@ -1,8 +1,8 @@
-import createTag from '../createTag/index.js';
-import stripIndent from '../stripIndent/index.js';
-import inlineArrayTransformer from '../inlineArrayTransformer/index.js';
-import splitStringTransformer from '../splitStringTransformer/index.js';
-import removeNonPrintingValuesTransformer from '../removeNonPrintingValuesTransformer/index.js';
+import { createTag } from '../createTag/index.js';
+import { stripIndent } from '../stripIndent/index.js';
+import { inlineArrayTransformer } from '../inlineArrayTransformer/index.js';
+import { splitStringTransformer } from '../splitStringTransformer/index.js';
+import { removeNonPrintingValuesTransformer } from '../removeNonPrintingValuesTransformer/index.js';
 
 const html = createTag(
   splitStringTransformer('\n'),
@@ -11,4 +11,4 @@ const html = createTag(
   stripIndent,
 );
 
-export default html;
+export { html };

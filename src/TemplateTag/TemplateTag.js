@@ -1,4 +1,4 @@
-import createTag from '../createTag/index.js';
+import { createTag } from '../createTag/index.js';
 
 let deprecationWarningPrinted = false;
 
@@ -6,7 +6,7 @@ let deprecationWarningPrinted = false;
  * @class TemplateTag
  * @classdesc Consumes a pipeline of composable transformer plugins and produces a template tag.
  */
-export default class TemplateTag {
+export class TemplateTag {
   /**
    * constructs a template tag
    * @constructs TemplateTag

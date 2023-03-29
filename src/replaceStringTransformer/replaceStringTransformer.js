@@ -10,4 +10,4 @@ const replaceStringTransformer = (replaceWhat, replaceWith) => {
   };
 };
 
-export default replaceStringTransformer;
+export { replaceStringTransformer };

@@ -1,15 +1,28 @@
-import babel from '@rollup/plugin-babel';
-import resolve from '@rollup/plugin-node-resolve';
-import { uglify } from 'rollup-plugin-uglify';
-
-export default {
+export default [{
   input: 'src/index.js',
   output: {
     extend: true,
-    file: 'dist/common-tags.min.js',
+    file: 'dist/proper-tags.umd.js',
     format: 'umd',
     indent: false,
-    name: 'commonTags',
+    name: 'properTags'
   },
-  plugins: [babel(), resolve(), uglify()],
-};
+},
+  {
+		input: "./src/index.js",
+		output: {
+			file: "dist/proper-tags.cjs",
+			format: "commonjs",
+			name: "properTags",
+			exports: "auto"
+			
+		}
+	},
+  {	
+		input: "./src/index.js",
+		output: {
+			file: "dist/proper-tags.js",
+			format: "es"
+		}
+	}
+];

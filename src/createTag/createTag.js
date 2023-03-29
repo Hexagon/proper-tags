@@ -79,7 +79,7 @@ function applyHook1({ transformers, context }, hookName, initialString, arg1) {
  * @param  {...Object} [...rawTransformers] - An array or arguments list of transformers
  * @return {Function}                       - A template tag
  */
-export default function createTag(...rawTransformers) {
+export function createTag(...rawTransformers) {
   const transformers = cleanTransformers(rawTransformers);
 
   function tag(strings, ...expressions) {

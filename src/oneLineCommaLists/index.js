@@ -1,1 +1,1 @@
-export default from './oneLineCommaLists.js';
+export { oneLineCommaLists } from './oneLineCommaLists.js';

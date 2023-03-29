@@ -16,4 +16,4 @@ const replaceResultTransformer = (replaceWhat, replaceWith) => {
   };
 };
 
-export default replaceResultTransformer;
+export { replaceResultTransformer };

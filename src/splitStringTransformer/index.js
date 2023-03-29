@@ -1,1 +1,1 @@
-export default from './splitStringTransformer.js';
+export { splitStringTransformer } from './splitStringTransformer.js';

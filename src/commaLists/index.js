@@ -1,1 +1,1 @@
-export default from './commaLists.js';
+export { commaLists }from './commaLists.js';

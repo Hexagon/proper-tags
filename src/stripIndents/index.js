@@ -1,1 +1,1 @@
-export default from './stripIndents.js';
+export { stripIndents } from './stripIndents.js';

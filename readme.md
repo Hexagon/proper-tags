@@ -1,6 +1,15 @@
-# ![common-tags](media/logo.svg)
+# proper-tags (common-tags rebooted)
 
-🔖 A set of **well-tested**, commonly used template literal tag functions for use in ES2015+.
+Meet proper-tags, a refreshed and improved fork of the widely-used common-tags package, updated to meet the demands of modern JavaScript development. This updated package incorporates several key enhancements that make it more accessible for today's development workflows:
+
+* **Enhanced ESM Support:** proper-tags now offers full compliance with ECMAScript Modules, facilitating seamless integration with popular bundlers such as Webpack and Rollup, as well as native support in Deno and Bun (and Node, of course)
+* **Native TypeScript Typings:** With built-in TypeScript typings, proper-tags streamlines the development process for TypeScript users, providing a smoother experience overall.
+Deno Compatibility: proper-tags has been adapted to ensure compatibility with the Deno runtime, allowing developers to leverage its capabilities in Deno-based projects.
+* **Unchanged interface:** Fully compatible with existing guides and frameworks.
+
+## Original Readme
+
+🔖 A set of **well-tested**, commonly used template literal tag functions, 
 
 🌟 Plus some extra goodies for easily making your own tags.
 

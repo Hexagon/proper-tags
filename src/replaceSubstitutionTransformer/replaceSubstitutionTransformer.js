@@ -17,4 +17,4 @@ const replaceSubstitutionTransformer = (replaceWhat, replaceWith) => {
   };
 };
 
-export default replaceSubstitutionTransformer;
+export { replaceSubstitutionTransformer };

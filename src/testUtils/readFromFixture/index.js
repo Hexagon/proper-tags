@@ -1,1 +1,1 @@
-export default from './readFromFixture.js';
+export * as default from './readFromFixture.js';

@@ -31,4 +31,4 @@ const trimResultTransformer = (side = '') => {
   };
 };
 
-export default trimResultTransformer;
+export { trimResultTransformer };

@@ -1,3 +1,3 @@
-export default function flat(array) {
+export function flat(array) {
   return [].concat(...array);
 }

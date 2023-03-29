@@ -1,1 +1,1 @@
-export default from './replaceStringTransformer.js';
+export { replaceStringTransformer } from './replaceStringTransformer.js';

@@ -1,5 +1,5 @@
-import commaListsAnd from './commaListsAnd';
-import { readFromFixture } from '../testUtils';
+import commaListsAnd from './commaListsAnd.js';
+import { readFromFixture } from '../testUtils.js';
 
 const val = 'amaze';
 

@@ -1,1 +1,1 @@
-export default from './inlineArrayTransformer.js';
+export { inlineArrayTransformer } from './inlineArrayTransformer.js';

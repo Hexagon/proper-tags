@@ -1,6 +1,6 @@
-import createTag from '../createTag';
-import inlineArrayTransformer from '../inlineArrayTransformer';
-import splitStringTransformer from './splitStringTransformer';
+import { createTag } from '../createTag.js';
+import { inlineArrayTransformer } from '../inlineArrayTransformer.js';
+import { splitStringTransformer } from './splitStringTransformer.js';
 
 test('splits a string substitution into an array by the specified character', () => {
   const tag = createTag(splitStringTransformer('\n'), inlineArrayTransformer());

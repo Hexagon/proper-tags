@@ -1,5 +1,5 @@
-import commaLists from './commaLists';
-import { readFromFixture } from '../testUtils';
+import * as commaLists from './commaLists.js';
+import { readFromFixture } from '../testUtils.js';
 
 const val = 'amaze';
 

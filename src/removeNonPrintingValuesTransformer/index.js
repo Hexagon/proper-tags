@@ -1,1 +1,1 @@
-export default from './removeNonPrintingValuesTransformer.js';
+export { removeNonPrintingValuesTransformer } from './removeNonPrintingValuesTransformer.js';

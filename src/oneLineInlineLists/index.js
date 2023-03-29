@@ -1,1 +1,1 @@
-export default from './oneLineInlineLists.js';
+export { oneLineInlineLists } from './oneLineInlineLists.js';

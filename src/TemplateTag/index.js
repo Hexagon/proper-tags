@@ -1,1 +1,1 @@
-export default from './TemplateTag.js';
+export { TemplateTag } from './TemplateTag.js';

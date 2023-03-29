@@ -1,1 +1,1 @@
-export default from './createTag.js';
+export { createTag } from './createTag.js';

@@ -1,1 +1,1 @@
-export default from './stripLastNewLine.js';
+export { stripLastNewLine } from './stripLastNewLine.js';

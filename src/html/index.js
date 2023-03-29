@@ -1,1 +1,1 @@
-export default from './html.js';
+export { html } from './html.js';

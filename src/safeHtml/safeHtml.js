@@ -1,8 +1,8 @@
-import createTag from '../createTag/index.js';
-import stripIndent from '../stripIndent/index.js';
-import inlineArrayTransformer from '../inlineArrayTransformer/index.js';
-import splitStringTransformer from '../splitStringTransformer/index.js';
-import replaceSubstitutionTransformer from '../replaceSubstitutionTransformer/index.js';
+import { createTag } from '../createTag/index.js';
+import { stripIndent } from '../stripIndent/index.js';
+import { inlineArrayTransformer } from '../inlineArrayTransformer/index.js';
+import { splitStringTransformer } from '../splitStringTransformer/index.js';
+import { replaceSubstitutionTransformer } from '../replaceSubstitutionTransformer/index.js';
 
 const safeHtml = createTag(
   splitStringTransformer('\n'),
@@ -16,4 +16,4 @@ const safeHtml = createTag(
   replaceSubstitutionTransformer(/`/g, '&#x60;'),
 );
 
-export default safeHtml;
+export { safeHtml };

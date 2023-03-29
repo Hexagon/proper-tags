@@ -1,6 +1,6 @@
-import toString from '../toString/index.js';
+import { toString } from '../toString/index.js';
 
-export default function stripLastNewLine(value) {
+export function stripLastNewLine(value) {
   const stringValue = toString(value);
   const { length } = stringValue;
   return length > 0 && stringValue[length - 1] === '\n'

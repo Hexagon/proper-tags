@@ -1,7 +1,7 @@
-import createTag from '../createTag/index.js';
-import inlineArrayTransformer from '../inlineArrayTransformer/index.js';
-import trimResultTransformer from '../trimResultTransformer/index.js';
-import replaceResultTransformer from '../replaceResultTransformer/index.js';
+import { createTag } from '../createTag/index.js';
+import { inlineArrayTransformer } from '../inlineArrayTransformer/index.js';
+import { trimResultTransformer } from '../trimResultTransformer/index.js';
+import { replaceResultTransformer } from '../replaceResultTransformer/index.js';
 
 const oneLineCommaListsOr = createTag(
   inlineArrayTransformer({ separator: ',', conjunction: 'or' }),
@@ -9,4 +9,4 @@ const oneLineCommaListsOr = createTag(
   trimResultTransformer(),
 );
 
-export default oneLineCommaListsOr;
+export { oneLineCommaListsOr };

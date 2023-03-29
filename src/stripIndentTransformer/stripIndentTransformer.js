@@ -29,4 +29,4 @@ const stripIndentTransformer = (type = 'initial') => {
   };
 };
 
-export default stripIndentTransformer;
+export { stripIndentTransformer };

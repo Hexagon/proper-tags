@@ -1,1 +1,1 @@
-export default from '../html/index.js';
+export { html as source } from '../html/index.js';

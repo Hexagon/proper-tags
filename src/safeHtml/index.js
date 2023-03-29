@@ -1,1 +1,1 @@
-export default from './safeHtml.js';
+export { safeHtml } from './safeHtml.js';

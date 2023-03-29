@@ -1,1 +1,1 @@
-export default from './id.js';
+export { id } from './id.js';

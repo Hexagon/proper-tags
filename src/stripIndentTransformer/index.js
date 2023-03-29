@@ -1,1 +1,1 @@
-export default from './stripIndentTransformer.js';
+export { stripIndentTransformer } from './stripIndentTransformer.js';
