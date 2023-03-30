@@ -1,7 +1,7 @@
 {
   "name": "proper-tags",
   "description": "A few common utility template tags for ES2015",
-  "version": "2.0.0-alpha.6",
+  "version": "2.0.0-beta.0",
   "author": "Hexagon <https://github.com/hexagon>",
   "bugs": {
     "url": "http://github.com/declandewet/common-tags/issues"
@@ -19,7 +19,7 @@
     "micromatch": "^4.0.5",
     "rollup": "^1.32.1",
     "sinon": "^15.0.3",
-    "typescript": "^5.0.2",
+    "typescript": "^5.0.3",
     "uvu": "^0.5.6"
   },
   "directories": {
