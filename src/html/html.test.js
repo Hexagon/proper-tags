@@ -1,5 +1,14 @@
-import html from './html';
-import { readFromFixture } from '../testUtils';
+import { test } from 'uvu';
+import * as assert from 'uvu/assert';
+
+/* Recreate __dirname */
+import path from 'path';
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+import { html } from './html.js';
+import { readFromFixture } from '../testUtils/index.js';
 
 const val = 'amaze';
 const nil = null;
@@ -164,3 +173,5 @@ test('may not indent as expected when the array is not in a new line', () => {
 
   assert.equal(actual, expected);
 });
+
+test.run();

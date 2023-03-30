@@ -1,4 +1,7 @@
-import fs from "fs";
+import { test } from 'uvu';
+import * as assert from 'uvu/assert';
+
+import * as fs from "fs";
 import path from "path";
 import mm from "micromatch";
 
@@ -29,3 +32,5 @@ test("common-tags exports all the right modules as props", () => {
 		assert.equal(require("./index")).toHaveProperty(module, requireModule(module));
 	});
 });
+
+test.run();

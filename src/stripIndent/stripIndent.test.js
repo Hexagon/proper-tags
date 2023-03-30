@@ -1,5 +1,14 @@
-import stripIndent from './stripIndent';
-import { readFromFixture } from '../testUtils';
+import { test } from 'uvu';
+import * as assert from 'uvu/assert';
+
+/* Recreate __dirname */
+import path from 'path';
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+import { stripIndent } from './stripIndent.js';
+import { readFromFixture } from '../testUtils/index.js';
 
 const val = 'amaze';
 
@@ -51,3 +60,5 @@ test('does nothing if minimal indent has zero length', () => {
   const actual = stripIndent`wow\n such\n doge`;
   assert.equal(actual, expected);
 });
+
+test.run();

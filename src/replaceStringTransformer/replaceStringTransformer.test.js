@@ -1,5 +1,14 @@
-import replaceStringTransformer from './replaceStringTransformer';
-import createTag from '../createTag';
+import { test } from 'uvu';
+import * as assert from 'uvu/assert';
+
+/* Recreate __dirname */
+import path from 'path';
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+import { replaceStringTransformer } from './replaceStringTransformer.js';
+import { createTag } from '../createTag/index.js';
 
 test('only operates on strings', () => {
   const tag = createTag(
@@ -12,7 +21,9 @@ test('only operates on strings', () => {
 });
 
 test('throws error if no arguments are supplied', () => {
-  assert.equal(() => {
+  assert.throws(() => {
     replaceStringTransformer();
-  }).toThrow(/requires exactly 2 arguments/);
+  },/requires exactly 2 arguments/);
 });
+
+test.run();

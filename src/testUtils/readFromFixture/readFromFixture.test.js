@@ -1,4 +1,13 @@
-import readFromFixture from './readFromFixture';
+import { test } from 'uvu';
+import * as assert from 'uvu/assert'
+
+/* Recreate __dirname */
+import path from 'path';
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+import { readFromFixture } from './readFromFixture.js';
 
 test('reads the correct fixture contents', () => {
   const actual = readFromFixture(__dirname, 'contents');
@@ -7,7 +16,9 @@ test('reads the correct fixture contents', () => {
 });
 
 test('should throw if no file was found', () => {
-  assert.equal(() => {
+  assert.throws(() => {
     readFromFixture(__dirname, 'nothing');
-  }).toThrow(/ENOENT/);
+  }, /ENOENT/);
 });
+
+test.run()

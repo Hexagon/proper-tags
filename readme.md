@@ -62,7 +62,7 @@ import { html } from 'https://deno.land/x/proper_tags/dist/proper-tags.js';
 To include proper-tags via **jsdelivr**, add the following script tag to your HTML file:
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/proper-tags@2.0.0-alpha.5/dist/proper-tags.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/proper-tags@2.0.0-alpha.6/dist/proper-tags.umd.js"></script>
 ```
 
 > **Note:** Make sure to replace `2.0.0-alpha.1` with the latest version

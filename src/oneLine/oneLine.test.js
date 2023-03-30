@@ -1,5 +1,14 @@
-import oneLine from './oneLine';
-import { readFromFixture } from '../testUtils';
+import { test } from 'uvu';
+import * as assert from 'uvu/assert';
+
+/* Recreate __dirname */
+import path from 'path';
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+import { oneLine } from './oneLine.js';
+import { readFromFixture } from '../testUtils/index.js';
 
 const val = 'amaze';
 
@@ -34,3 +43,5 @@ test('preserves whitespace within input lines, replacing only newlines', () => {
   `;
   assert.equal(actual, expected);
 });
+
+test.run()

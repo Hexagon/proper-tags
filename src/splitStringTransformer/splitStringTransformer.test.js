@@ -1,5 +1,8 @@
-import { createTag } from '../createTag.js';
-import { inlineArrayTransformer } from '../inlineArrayTransformer.js';
+import { test } from 'uvu';
+import * as assert from 'uvu/assert';
+
+import { createTag } from '../createTag/index.js';
+import { inlineArrayTransformer } from '../inlineArrayTransformer/index.js';
 import { splitStringTransformer } from './splitStringTransformer.js';
 
 test('splits a string substitution into an array by the specified character', () => {
@@ -18,13 +21,15 @@ test('ignores substitution if it is not a string', () => {
 });
 
 test('throws an error if splitBy param is undefined', () => {
-  assert.equal(() => {
+  assert.throws(() => {
     splitStringTransformer();
-  }).toThrow(/specify a string character to split by/);
+  }, /specify a string character to split by/);
 });
 
 test('throws an error if splitBy param is not a string', () => {
-  assert.equal(() => {
+  assert.throws(() => {
     splitStringTransformer(42);
-  }).toThrow(/specify a string character to split by/);
+  }, /specify a string character to split by/);
 });
+
+test.run();

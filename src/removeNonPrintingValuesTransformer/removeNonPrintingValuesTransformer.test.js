@@ -1,6 +1,9 @@
-import createTag from '../createTag';
-import inlineArrayTransformer from '../inlineArrayTransformer';
-import removeNonPrintingValuesTransformer from '../removeNonPrintingValuesTransformer';
+import { test } from 'uvu';
+import * as assert from 'uvu/assert';
+
+import { createTag } from '../createTag/index.js';
+import { inlineArrayTransformer } from '../inlineArrayTransformer/index.js';
+import { removeNonPrintingValuesTransformer } from '../removeNonPrintingValuesTransformer/index.js';
 
 test('removes null', () => {
   const remove = createTag(removeNonPrintingValuesTransformer());
@@ -29,3 +32,5 @@ test('removes non-printing array values', () => {
   const val = ['foo', undefined, 'bar', null];
   assert.equal(remove`a ${val} z`, 'a foo bar z');
 });
+
+test.run();

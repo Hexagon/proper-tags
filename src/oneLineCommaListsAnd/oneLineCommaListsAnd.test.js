@@ -1,5 +1,14 @@
-import oneLineCommaListsAnd from './oneLineCommaListsAnd';
-import { readFromFixture } from '../testUtils';
+import { test } from 'uvu';
+import * as assert from 'uvu/assert';
+
+/* Recreate __dirname */
+import path from 'path';
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+import { oneLineCommaListsAnd } from './oneLineCommaListsAnd.js';
+import { readFromFixture } from '../testUtils/index.js';
 
 const val = 'amaze';
 
@@ -25,3 +34,5 @@ test('only returns the first item of a single element array', () => {
   `;
   assert.equal(actual, expected);
 });
+
+test.run();

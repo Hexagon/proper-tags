@@ -1,7 +1,16 @@
-import createTag from '../createTag';
-import stripIndentTransformer from './stripIndentTransformer';
-import trimResultTransformer from '../trimResultTransformer';
-import { readFromFixture } from '../testUtils';
+import { test } from 'uvu';
+import * as assert from 'uvu/assert';
+
+/* Recreate __dirname */
+import path from 'path';
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+import { createTag } from '../createTag/index.js';
+import { stripIndentTransformer } from './stripIndentTransformer.js';
+import { trimResultTransformer } from '../trimResultTransformer/index.js';
+import { readFromFixture } from '../testUtils/index.js';
 
 test('default behaviour removes the leading indent, but preserves the rest', () => {
   const stripIndent = createTag(
@@ -44,7 +53,9 @@ test('removes all indents if type is "all"', () => {
 });
 
 test('throws an error if encounters invalid type', () => {
-  assert.equal(() => {
+  assert.throws(() => {
     stripIndentTransformer('blue');
-  }).toThrow(/not supported/);
+  }, /not supported/);
 });
+
+test.run();

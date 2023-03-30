@@ -1,5 +1,8 @@
-import inlineArrayTransformer from './inlineArrayTransformer';
-import createTag from '../createTag';
+import { test } from 'uvu';
+import * as assert from 'uvu/assert';
+
+import { inlineArrayTransformer } from './inlineArrayTransformer.js';
+import { createTag } from '../createTag/index.js';
 
 test('only operates on arrays', () => {
   const tag = createTag(inlineArrayTransformer);
@@ -9,7 +12,7 @@ test('only operates on arrays', () => {
 test('includes an array as a comma-separated list', () => {
   const tag = createTag(inlineArrayTransformer({ separator: ',' }));
   assert.equal(tag`I like ${['apple', 'banana', 'kiwi']}`, 
-    'I like apple, banana, kiwi',
+    'I like apple, banana, kiwi'
   );
 });
 
@@ -28,7 +31,7 @@ test('replaces last separator with a conjunction', () => {
   );
   assert.equal(
     tag`I like ${['apple', 'banana', 'a fruit that has "," in the name']}`,
-  , 'I like apple, banana and a fruit that has "," in the name');
+    'I like apple, banana and a fruit that has "," in the name');
 });
 
 test('does not use a conjunction if there is only one item in an array', () => {
@@ -102,3 +105,5 @@ test('does not introduce excess newlines', () => {
     'My friends are always\n\n  dramatic\n  emotional\n  needy',
   );
 });
+
+test.run();

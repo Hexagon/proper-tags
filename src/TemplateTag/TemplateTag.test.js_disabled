@@ -1,4 +1,13 @@
-import TemplateTag from '../TemplateTag';
+import { test } from 'uvu';
+import * as assert from 'uvu/assert';
+
+/* Recreate __dirname */
+import path from 'path';
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+import { TemplateTag } from './index.js';
 
 /* eslint-disable no-console */
 
@@ -55,3 +64,5 @@ test('performs a transformation & provides correct values to transform methods',
     ],
   });
 });
+
+test.run();

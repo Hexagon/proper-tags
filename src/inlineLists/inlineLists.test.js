@@ -1,5 +1,14 @@
-import inlineLists from './inlineLists';
-import { readFromFixture } from '../testUtils';
+import { test } from 'uvu';
+import * as assert from 'uvu/assert';
+
+/* Recreate __dirname */
+import path from 'path';
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+import { inlineLists } from './inlineLists.js';
+import { readFromFixture } from '../testUtils/index.js';
 
 const val = 'amaze';
 
@@ -12,3 +21,5 @@ test('includes arrays as space-separated list', () => {
   `;
   assert.equal(actual, expected);
 });
+
+test.run();

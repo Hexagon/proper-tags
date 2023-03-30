@@ -1,6 +1,9 @@
-import createTag from '../createTag';
-import replaceResultTransformer from './replaceResultTransformer';
-import trimResultTransformer from '../trimResultTransformer';
+import { test } from 'uvu';
+import * as assert from 'uvu/assert';
+
+import { createTag } from '../createTag/index.js';
+import { replaceResultTransformer } from './replaceResultTransformer.js';
+import { trimResultTransformer } from '../trimResultTransformer/index.js';
 
 test('replaces sequential whitespace with a single space', () => {
   const oneLine = createTag(
@@ -31,7 +34,9 @@ test('can be set so sequence requires a newline at the beginning before triggeri
 });
 
 test('throws error if no arguments are supplied', () => {
-  assert.equal(() => {
+  assert.throws(() => {
     replaceResultTransformer();
-  }).toThrow(/requires exactly 2 arguments/);
+  }, /requires exactly 2 arguments/);
 });
+
+test.run();

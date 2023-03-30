@@ -1,5 +1,8 @@
-import replaceSubstitutionTransformer from './replaceSubstitutionTransformer';
-import createTag from '../createTag';
+import { test } from 'uvu';
+import * as assert from 'uvu/assert';
+
+import { replaceSubstitutionTransformer } from './replaceSubstitutionTransformer.js';
+import { createTag } from '../createTag/index.js';
 
 test('only operates on substitutions', () => {
   const tag = createTag(
@@ -27,7 +30,9 @@ test('works on arrays', () => {
 });
 
 test('throws error if no arguments are supplied', () => {
-  assert.equal(() => {
+  assert.throws(() => {
     replaceSubstitutionTransformer();
-  }).toThrow(/requires exactly 2 arguments/);
+  }, /requires exactly 2 arguments/);
 });
+
+test.run();
