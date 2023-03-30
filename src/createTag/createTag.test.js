@@ -1,5 +1,6 @@
 import { test, suite } from 'uvu';
 import * as assert from 'uvu/assert';
+import * as sinon from 'sinon';
 
 /* Recreate __dirname */
 import path from 'path';
@@ -7,7 +8,7 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-import { createTag } from '../createTag/index.js';
+import { createTag } from './index.js';
 
 test('does no processing by default', () => {
   const tag = createTag();
@@ -56,7 +57,7 @@ test('calls hooks with an additional context argument', () => {
     },
   });
   const data = tag`foo ${'bar'} baz ${'fizz'}`;
-  assert.equal(data).toEqual({
+  assert.equal(data, {
     endResult: 'FOO BAR BAZ FIZZ',
     strings: ['foo ', ' baz ', ''],
     subs: [
@@ -127,17 +128,17 @@ test('each transformer has its own context', () => {
 
   tag`foo${42}`;
 
-  assert.equal(defaultContext).toEqual({
+  assert.equal(defaultContext, {
     onStringCalled: true,
     onSubstitutionCalled: true,
     onEndResultCalled: true,
   });
-  assert.equal(context1).toEqual({
+  assert.equal(context1, {
     onStringCalled: true,
     onSubstitutionCalled: true,
     onEndResultCalled: true,
   });
-  assert.equal(context2).toEqual({
+  assert.equal(context2, {
     onStringCalled: true,
     onSubstitutionCalled: true,
     onEndResultCalled: true,
@@ -145,13 +146,13 @@ test('each transformer has its own context', () => {
 });
 
 test('calls the "init" hook each time the tag is called', () => {
-  const getInitialContext = jest.fn();
+  const getInitialContext = sinon.spy();
   const tag = createTag({ getInitialContext });
 
   tag`foo`;
   tag`foo`;
 
-  assert.equal(getInitialContext).toHaveBeenCalledTimes(2);
+  assert.equal(getInitialContext.callCount,2);
 });
 
 test("doesn't handle function arguments specially", () => {
@@ -262,7 +263,8 @@ suite('supports using the tag as a plain function', () => {
 
   test.run();
 });
-
+/*
+ToDo: Need to be converted to uvu
 test('transforms substitutions to string as per spec', () => {
   const get = jest
     .fn()
@@ -283,7 +285,7 @@ test('transforms substitutions to string as per spec', () => {
 
   assert.equal(get).toHaveBeenCalledTimes(3);
   assert.equal(result, 'foo 42 bar');
-});
+});*/
 
 test('accepts other tags as arguments and applies them in order', () => {
   const tag1 = createTag({

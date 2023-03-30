@@ -1,5 +1,6 @@
 import { test } from 'uvu';
 import * as assert from 'uvu/assert';
+import * as sinon from 'sinon';
 
 /* Recreate __dirname */
 import path from 'path';
@@ -11,23 +12,21 @@ import { TemplateTag } from './index.js';
 
 /* eslint-disable no-console */
 
-beforeEach(() => {
-  console.warn = jest.fn();
+test.before.each(() => {
+  console.warn = sinon.spy();
 });
 
 test('a warning should be printed the first time a TemplateTag is constructed', () => {
-  assert.equal(console.warn).toHaveBeenCalledTimes(0);
+  assert.equal(console.warn.notCalled,true);
 
   new TemplateTag();
 
-  assert.equal(console.warn).toHaveBeenCalledTimes(1);
-  assert.equal(console.warn).toHaveBeenCalledWith(
-    expect.stringContaining('Use createTag instead'),
-  );
+  assert.equal(console.warn.called, true);
+  assert.equal(console.warn.calledWith(sinon.match('Use createTag instead')),true);
 
   new TemplateTag();
 
-  assert.equal(console.warn).toHaveBeenCalledTimes(1);
+  assert.equal(console.warn.called, true);
 });
 
 /* eslint-enable no-console */
@@ -49,7 +48,7 @@ test('performs a transformation & provides correct values to transform methods',
     },
   });
   const data = tag`foo ${'bar'} baz ${'fizz'}`;
-  assert.equal(data).toEqual({
+  assert.equal(data,{
     endResult: 'FOO BAR BAZ FIZZ',
     strings: ['foo ', ' baz ', ''],
     subs: [

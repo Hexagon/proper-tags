@@ -45,7 +45,7 @@ test('can be used sequentially', () => {
   assert.equal(trimStart`  bar  `, 'bar  ');
 });
 
-describe('smart trimming', () => {
+suite('smart trimming', () => {
   const trimSmart = createTag(trimResultTransformer('smart'));
 
   test('leaves a string without surrounding whitespace as-is', () => {
@@ -74,9 +74,9 @@ describe('smart trimming', () => {
 });
 
 test('throws an error if invalid side supplied', () => {
-  assert.equal(() => {
+  assert.throws(() => {
     trimResultTransformer('up');
-  }).toThrow(/not supported/);
+  }, /not supported/);
 });
 
 test.run();
