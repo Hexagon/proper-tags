@@ -1,4 +1,3 @@
-export const __esModule: boolean;
 /**
  * @class TemplateTag
  * @classdesc Consumes a pipeline of composable transformer plugins and produces a template tag.
