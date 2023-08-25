@@ -1,15 +1,15 @@
-# proper-tags (commmon-tags rebooted)
+# proper-tags (common-tags rebooted)
 
 [![npm version](https://badge.fury.io/js/proper-tags.svg)](https://badge.fury.io/js/proper-tags) [![NPM Downloads](https://img.shields.io/npm/dw/proper-tags.svg)](https://www.npmjs.org/package/proper-tags)
 ![No dependencies](https://img.shields.io/badge/dependencies-none-brightgreen) [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/Hexagon/proper-tags/blob/master/LICENSE)
 
 **proper-tags** is an evolved version of the widely-used CommonJS package **common-tags**. It has been updated with the following considerations for modern JavaScript environments:
 
-🌟 Extendable: proper-tags comes with built-in tools for creating custom tags.
-📦 ESM Code Base: With support for ESM/ECMAScript Modules, it ensures native compatibility with modern development tools.
-🦕 Deno Compatibility: Designed specifically to function seamlessly with the Deno runtime.
-📝 TypeScript Definitions: Integrated TypeScript typings make development in TypeScript a breeze.
-🔄 API Consistency: Its interface aligns with common-tags, ensuring compatibility with existing frameworks and guides.
+* 🌟 Extendable: proper-tags comes with built-in tools for creating custom tags.
+* 📦 ESM Code Base: With support for ESM/ECMAScript Modules, it ensures native compatibility with modern development tools.
+* 🦕 Deno Compatibility: Designed specifically to function seamlessly with the Deno runtime.
+* 📝 TypeScript Definitions: Integrated TypeScript typings make development in TypeScript a breeze.
+* 🔄 API Consistency: Its interface aligns with common-tags, ensuring compatibility with existing frameworks and guides.
 
 Below is a quick guide, check out the full documentation at [https://proper-tags.56k.guru](https://proper-tags.56k.guru).
 
