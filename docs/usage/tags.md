@@ -11,7 +11,9 @@ nav_order: 2
 
 `proper-tags` exports a bunch of wonderful pre-cooked template tags for your eager consumption. They are as follows:
 
-1. TOC
+## Table of contents
+
+1. Table of contents
 {:toc}
 
 #### `html`

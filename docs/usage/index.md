@@ -17,5 +17,7 @@ Like all modules, `proper-tags` begins with an `import`. In fact, `proper-tags` 
 import { stripIndent } from 'proper-tags'
 ```
 
-1. TOC
+## Table of contents
+
+1. Table of contents
 {:toc}

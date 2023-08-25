@@ -9,6 +9,11 @@ nav_order: 3
 
 ---
 
+## Table of contents
+
+1. Table of contents
+{:toc}
+
 ### Tail Processing
 
 It's possible to pass the output of a tagged template to another template tag in pure ES2015+:
