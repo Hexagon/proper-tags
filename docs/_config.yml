@@ -1,0 +1,18 @@
+title: Proper Tags
+
+description: Pure ESM fork of the popular package common-tags.
+
+remote_theme: just-the-docs/just-the-docs
+
+url: https://proper-tags.56k.guru
+
+aux_links:
+  GitHub Repository: https://github.com/hexagon/proper-tags
+  NPM Library: https://npmjs.com/package/proper-tags
+  Deno Library: https://deno.land/x/proper_tags
+
+plugins:
+  - jekyll-relative-links
+  - jekyll-default-layout
+
+# color_scheme: dark
