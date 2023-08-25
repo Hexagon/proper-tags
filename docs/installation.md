@@ -34,6 +34,6 @@ To use `proper-tags` with **Deno**, follow the import example:
 
 For usage via **jsdelivr** in the browser:
 
-    <script src="https://cdn.jsdelivr.net/npm/proper-tags@2.0.0-beta.0/dist/proper-tags.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/proper-tags@2.0.2/dist/proper-tags.umd.js"></script>
 
 > **Note:** Ensure you're using the latest version in the URL.
