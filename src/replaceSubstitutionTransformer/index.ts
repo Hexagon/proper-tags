@@ -1,1 +1,1 @@
-export { replaceSubstitutionTransformer } from "./replaceSubstitutionTransformer.js";
+export { replaceSubstitutionTransformer } from "./replaceSubstitutionTransformer.ts";

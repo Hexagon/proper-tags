@@ -1,6 +1,6 @@
-import { createTag } from "../createTag/index.js";
-import { stripIndentTransformer } from "../stripIndentTransformer/index.js";
-import { trimResultTransformer } from "../trimResultTransformer/index.js";
+import { createTag } from "../createTag/createTag.ts";
+import { stripIndentTransformer } from "../stripIndentTransformer/index.ts";
+import { trimResultTransformer } from "../trimResultTransformer/index.ts";
 
 /**
  * If you want to strip *all* of the indentation from the beginning of each line in a multiline string.

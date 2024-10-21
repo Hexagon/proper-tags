@@ -1,1 +1,1 @@
-export { html as source } from "../html/index.ts";
+export { html as source } from "../html/html.ts";

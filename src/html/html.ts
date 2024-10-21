@@ -1,8 +1,8 @@
-import { createTag } from "../createTag/index.js";
-import { stripIndent } from "../stripIndent/index.js";
-import { inlineArrayTransformer } from "../inlineArrayTransformer/index.js";
-import { splitStringTransformer } from "../splitStringTransformer/index.js";
-import { removeNonPrintingValuesTransformer } from "../removeNonPrintingValuesTransformer/index.js";
+import { createTag } from "../createTag/createTag.ts";
+import { stripIndent } from "../stripIndent/stripIndent.ts";
+import { inlineArrayTransformer } from "../inlineArrayTransformer/inlineArrayTransformer.ts";
+import { splitStringTransformer } from "../splitStringTransformer/index.ts";
+import { removeNonPrintingValuesTransformer } from "../removeNonPrintingValuesTransformer/index.ts";
 
 /**
  * A function that returns an HTML string by processing a template literal or a JSTag function.

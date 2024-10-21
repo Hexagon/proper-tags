@@ -1,9 +1,9 @@
 import { test } from "uvu";
 import * as assert from "uvu/assert";
 
-import { createTag } from "../createTag/index.js";
+import { createTag } from "../createTag/createTag.ts";
 import { replaceResultTransformer } from "./replaceResultTransformer.ts";
-import { trimResultTransformer } from "../trimResultTransformer/index.js";
+import { trimResultTransformer } from "../trimResultTransformer/index.ts";
 
 test("replaces sequential whitespace with a single space", () => {
   const oneLine = createTag(

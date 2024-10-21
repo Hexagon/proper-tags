@@ -1,1 +1,1 @@
-export { replaceResultTransformer } from "./replaceResultTransformer.js";
+export { replaceResultTransformer } from "./replaceResultTransformer.ts";

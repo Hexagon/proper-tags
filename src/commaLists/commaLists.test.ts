@@ -6,7 +6,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 import { commaLists } from "./commaLists.ts";
-import { readFromFixture } from "../testUtils/index.js";
+import { readFromFixture } from "../testUtils/index.ts";
 
 const val = "amaze";
 

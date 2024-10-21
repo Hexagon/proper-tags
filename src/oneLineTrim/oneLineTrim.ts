@@ -1,6 +1,6 @@
-import { createTag } from "../createTag/index.js";
-import { trimResultTransformer } from "../trimResultTransformer/index.js";
-import { replaceResultTransformer } from "../replaceResultTransformer/index.js";
+import { createTag } from "../createTag/createTag.ts";
+import { trimResultTransformer } from "../trimResultTransformer/index.ts";
+import { replaceResultTransformer } from "../replaceResultTransformer/index.ts";
 
 /**
  * Allows you to keep your single-line strings under 80 characters while trimming the new lines.

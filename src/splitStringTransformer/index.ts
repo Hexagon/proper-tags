@@ -1,1 +1,1 @@
-export { splitStringTransformer } from "./splitStringTransformer.js";
+export { splitStringTransformer } from "./splitStringTransformer.ts";

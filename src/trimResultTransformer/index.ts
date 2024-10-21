@@ -1,1 +1,1 @@
-export { trimResultTransformer } from "./trimResultTransformer.js";
+export { trimResultTransformer } from "./trimResultTransformer.ts";

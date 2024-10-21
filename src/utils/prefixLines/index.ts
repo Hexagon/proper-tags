@@ -1,1 +1,1 @@
-export { prefixLines } from "./prefixLines.js";
+export { prefixLines } from "./prefixLines.ts";

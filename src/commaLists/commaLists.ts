@@ -1,6 +1,6 @@
-import { createTag } from "../createTag/index.js";
-import { stripIndent } from "../stripIndent/index.js";
-import { inlineArrayTransformer } from "../inlineArrayTransformer/index.js";
+import { createTag } from "../createTag/createTag.ts";
+import { stripIndent } from "../stripIndent/stripIndent.ts";
+import { inlineArrayTransformer } from "../inlineArrayTransformer/inlineArrayTransformer.ts";
 
 /**
  * Allows you to inline an array substitution as a comma-separated list.

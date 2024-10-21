@@ -7,10 +7,10 @@ import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-import { createTag } from "../createTag/index.js";
+import { createTag } from "../createTag/createTag.ts";
 import { stripIndentTransformer } from "./stripIndentTransformer.ts";
-import { trimResultTransformer } from "../trimResultTransformer/index.js";
-import { readFromFixture } from "../testUtils/index.js";
+import { trimResultTransformer } from "../trimResultTransformer/index.ts";
+import { readFromFixture } from "../testUtils/index.ts";
 
 test("default behaviour removes the leading indent, but preserves the rest", () => {
   const stripIndent = createTag(

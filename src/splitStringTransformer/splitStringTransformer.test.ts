@@ -1,8 +1,8 @@
 import { test } from "uvu";
 import * as assert from "uvu/assert";
 
-import { createTag } from "../createTag/index.js";
-import { inlineArrayTransformer } from "../inlineArrayTransformer/index.ts";
+import { createTag } from "../createTag/createTag.ts";
+import { inlineArrayTransformer } from "../inlineArrayTransformer/inlineArrayTransformer.ts";
 import { splitStringTransformer } from "./splitStringTransformer.ts";
 
 test("splits a string substitution into an array by the specified character", () => {

@@ -2,7 +2,7 @@ import { test } from "uvu";
 import * as assert from "uvu/assert";
 
 import { replaceSubstitutionTransformer } from "./replaceSubstitutionTransformer.ts";
-import { createTag } from "../createTag/index.js";
+import { createTag } from "../createTag/createTag.ts";
 
 test("only operates on substitutions", () => {
   const tag = createTag(

@@ -7,7 +7,7 @@ import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-import { createTag } from "../createTag/index.js";
+import { createTag } from "../createTag/createTag.ts";
 import { stripIndentTransformer } from "../stripIndentTransformer/index.ts";
 import { trimResultTransformer } from "./trimResultTransformer.ts";
 

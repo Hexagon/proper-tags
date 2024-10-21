@@ -8,7 +8,7 @@ import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-import { createTag } from "./index.js";
+import { createTag } from "./index.ts";
 
 test("does no processing by default", () => {
   const tag = createTag();

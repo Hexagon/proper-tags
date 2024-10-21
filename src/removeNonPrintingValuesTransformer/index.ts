@@ -1,1 +1,1 @@
-export { removeNonPrintingValuesTransformer } from "./removeNonPrintingValuesTransformer.js";
+export { removeNonPrintingValuesTransformer } from "./removeNonPrintingValuesTransformer.ts";

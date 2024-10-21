@@ -1,1 +1,1 @@
-export { replaceStringTransformer } from "./replaceStringTransformer.js";
+export { replaceStringTransformer } from "./replaceStringTransformer.ts";

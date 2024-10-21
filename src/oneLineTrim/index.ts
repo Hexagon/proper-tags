@@ -1,1 +1,1 @@
-export { oneLineTrim } from "./oneLineTrim.js";
+export { oneLineTrim } from "./oneLineTrim.ts";

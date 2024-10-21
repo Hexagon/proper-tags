@@ -1,1 +1,1 @@
-export { stripLastNewLine } from "./stripLastNewLine.js";
+export { stripLastNewLine } from "./stripLastNewLine.ts";

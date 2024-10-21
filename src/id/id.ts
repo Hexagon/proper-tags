@@ -1,4 +1,4 @@
-import { createTag } from "../createTag/index.js";
+import { createTag } from "../createTag/createTag.ts";
 
 /**
  * A no-op tag that might come in useful in some scenarios, e.g. mocking.

@@ -1,1 +1,1 @@
-export { readFromFixture } from "./readFromFixture.js";
+export { readFromFixture } from "./readFromFixture.ts";
