@@ -1,0 +1,46 @@
+{
+  "lang": "en",
+  "layout": "page.njk",
+  "metas": {
+    "title": "=title",
+    "site": "Site Name",
+    "lang": "en",
+    "description": "=description"
+  },
+  "top_links": [
+    {
+      "icon": "fab fa-npm",
+      "title": "NPM Library",
+      "url": "https://npmjs.com/package/proper-tags"
+    },
+
+    {
+      "icon": "fab fa-github",
+      "title": "GitHub Repository",
+      "url": "https://github.com/hexagon/proper-tags"
+    },
+    {
+      "icon": "fab fa-npm",
+      "title": "Deno Module",
+      "url": "https://deno.land/x/proper_tags"
+    }
+  ],
+  "nav_links": [
+    {
+      "icon": "fab fa-npm",
+      "title": "NPM Library",
+      "url": "https://npmjs.com/package/proper-tags"
+    },
+
+    {
+      "icon": "fab fa-github",
+      "title": "GitHub Repository",
+      "url": "https://github.com/hexagon/proper-tags"
+    },
+    {
+      "icon": "fab fa-npm",
+      "title": "Deno Module",
+      "url": "https://deno.land/x/proper_tags"
+    }
+  ]
+}

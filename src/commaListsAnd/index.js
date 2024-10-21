@@ -1,1 +1,1 @@
-export { commaListsAnd } from './commaListsAnd.js';
+export { commaListsAnd } from "./commaListsAnd.ts";
