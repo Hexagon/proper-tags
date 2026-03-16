@@ -1,5 +1,3 @@
-/// <reference path="../types/proper-tags.d.ts" />
-
 function flat(array) {
   return [].concat(...array);
 }

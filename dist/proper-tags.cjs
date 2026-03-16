@@ -1,5 +1,4 @@
 'use strict';
-/// <reference path="../types/proper-tags.d.cts" />
 
 function flat(array) {
   return [].concat(...array);
