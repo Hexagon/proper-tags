@@ -1,40 +1,26 @@
 import { test } from 'uvu';
 import * as assert from 'uvu/assert';
 
-import * as fs from 'fs';
-import path from 'path';
-import mm from 'micromatch';
+import * as utils from './index.js';
+import { flat } from './flat/index.js';
+import { prefixLines } from './prefixLines/index.js';
+import { stripLastNewLine } from './stripLastNewLine/index.js';
+import { toString } from './toString/index.js';
 
-/* Recreate __dirname */
-import { fileURLToPath } from 'url';
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-const observe = ['*', '!index.js', '!index.test.js'];
-
-const context = {};
-
-test.before.each(() => {
-  context.modules = mm(fs.readdirSync(__dirname), observe);
+test('exports flat', () => {
+  assert.equal(utils.flat, flat);
 });
 
-function requireModule(module) {
-  return require(path.join(__dirname, module));
-}
-/*
-ToDo: Need to be converted to uvu
-test('utils exports all the right modules directly', () => {
-  const modules = context.modules;
-  modules.forEach((module) => {
-    assert.equal(requireModule(module)).toBeDefined();
-  });
+test('exports prefixLines', () => {
+  assert.equal(utils.prefixLines, prefixLines);
 });
 
-test('utils exports all the right modules as props', () => {
-  const modules = context.modules;
-  modules.forEach((module) => {
-    assert.equal(require('./index')).toHaveProperty(module, requireModule(module));
-  });
-});*/
+test('exports stripLastNewLine', () => {
+  assert.equal(utils.stripLastNewLine, stripLastNewLine);
+});
+
+test('exports toString', () => {
+  assert.equal(utils.toString, toString);
+});
 
 test.run();
